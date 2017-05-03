@@ -1,0 +1,7 @@
+[package]
+name = "magnusi-tech-server"
+version = "0.1.0"
+authors = ["Lukáš Hozda <luk.hozda@gmail.com>"]
+
+[dependencies]
+sharp_pencil = "0.4.3"
