@@ -30,13 +30,11 @@ fn markdown_page(name: &str) -> PencilResult
 fn main()
 {
 	let mut app = Pencil::new("web");
-	/*let index = |_: &mut Request| { markdown_page("index") };
-	let miniref = |_
-	*/
 	let index = md!("index");
-
+	let miniref = md!("miniref");
 
 	app.get("/", "index", index);
+	app.get("/miniref", "miniref", miniref);
 	app.enable_static_file_handling();
 	app.run("127.0.0.1:80");
 }
