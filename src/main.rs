@@ -8,6 +8,11 @@ use std::io::prelude::*;
 use markdown::file_to_html;
 use sharp_pencil::{Pencil, Request, Response, PencilResult};
 
+macro_rules! md
+{
+	($lit:expr) => { |_: &mut Request| { markdown_page($lit) } };
+}
+
 fn markdown_page(name: &str) -> PencilResult
 {
 	let body = file_to_html(
@@ -25,7 +30,12 @@ fn markdown_page(name: &str) -> PencilResult
 fn main()
 {
 	let mut app = Pencil::new("web");
-	let index = |_: &mut Request| { markdown_page("index") };
+	/*let index = |_: &mut Request| { markdown_page("index") };
+	let miniref = |_
+	*/
+	let index = md!("index");
+
+
 	app.get("/", "index", index);
 	app.enable_static_file_handling();
 	app.run("127.0.0.1:80");
