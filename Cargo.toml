@@ -4,5 +4,6 @@ version = "0.1.0"
 authors = ["Lukáš Hozda <luk.hozda@gmail.com>"]
 
 [dependencies]
-sharp_pencil = "0.4.3"
+sharp_pencil = "*"
+lazy_static = "*"
 markdown = "0.2.0"
