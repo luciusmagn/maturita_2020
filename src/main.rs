@@ -1,4 +1,3 @@
-#![feature(closure_to_fn_coercion)]
 #![feature(drop_types_in_const)]
 extern crate markdown;
 extern crate sharp_pencil;
@@ -21,11 +20,11 @@ macro_rules! md
 	($lit:expr) => { |_: &mut Request| { markdown_page($lit) } };
 }
 
+static TEMPLATE:&'static str = include_str!("../template.html");
+lazy_static! { static ref PAGE_CACHE_MUT: Mutex<HashMap<String, (String, SystemTime)>> = Mutex::new(HashMap::new()); }
+
 fn markdown_page(name: &str) -> PencilResult
 {
-	static TEMPLATE:&'static str = include_str!("../template.html");
-	lazy_static! { static ref PAGE_CACHE_MUT: Mutex<HashMap<String, (String, SystemTime)>> = Mutex::new(HashMap::new()); }
-
 	let mut page_cache = PAGE_CACHE_MUT.lock().unwrap();
 	let body = if page_cache.contains_key(&format!("web/{}.md", name))
 	{
@@ -82,12 +81,13 @@ fn markdown_page(name: &str) -> PencilResult
 
 fn main()
 {
-	let mut app = Pencil::new("web");
-	let index = md!("index");
-	let miniref = md!("miniref");
+	let mut app = 	Pencil::new("web");
+	let index 	= 	md!("index");
+	let miniref = 	md!("miniref");
 
 	app.get("/", "index", index);
 	app.get("/miniref", "miniref", miniref);
 	app.enable_static_file_handling();
+
 	app.run("0.0.0.0:80");
 }
