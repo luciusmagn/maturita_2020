@@ -1,6 +1,7 @@
 #![feature(drop_types_in_const)]
 extern crate markdown;
 extern crate sharp_pencil;
+extern crate sha_1;
 #[macro_use]
 extern crate lazy_static;
 
