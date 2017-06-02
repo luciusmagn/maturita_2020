@@ -4,6 +4,7 @@ extern crate sharp_pencil;
 extern crate sha_1;
 #[macro_use]
 extern crate lazy_static;
+extern crate ansi_term;
 
 use std::fs::{File, metadata};
 use std::path::Path;
@@ -14,6 +15,7 @@ use std::collections::HashMap;
 use std::sync::Mutex;
 
 use markdown::file_to_html;
+use ansi_term::Colour::{Green, Blue};
 use sharp_pencil::{Pencil, PencilResult, Request, Response};
 
 macro_rules! md
@@ -88,6 +90,17 @@ fn main()
 
 	app.get("/", "index", index);
 	app.get("/miniref", "miniref", miniref);
+	app.before_request(
+		|request|
+		{
+			println!(" {} {} from {}",
+				Green.bold().paint(request.method.to_string()),
+				request.url,
+				Blue.bold().paint(request.remote_addr.to_string())
+			);
+			None
+		}
+	);
 	app.enable_static_file_handling();
 
 	app.run("0.0.0.0:80");
