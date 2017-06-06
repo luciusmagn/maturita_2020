@@ -1,10 +1,14 @@
 #![feature(drop_types_in_const)]
+#[macro_use]
+extern crate serde_derive;
+#[macro_use]
+extern crate lazy_static;
 extern crate markdown;
 extern crate sharp_pencil;
 extern crate sha_1;
-#[macro_use]
-extern crate lazy_static;
+extern crate serde;
 extern crate ansi_term;
+extern crate toml;
 
 use std::fs::{File, metadata};
 use std::path::Path;
@@ -18,12 +22,58 @@ use markdown::file_to_html;
 use ansi_term::Colour::{Green, Blue};
 use sharp_pencil::{Pencil, PencilResult, Request, Response};
 
+#[derive(Clone, Serialize, Deserialize)]
+pub struct Index
+{
+	pub entries: Vec<Entry>,
+}
+
+#[derive(Clone, Serialize, Deserialize)]
+pub struct Entry
+{
+	pub name: String,
+	pub versions: Vec<String>,
+	pub author: String,
+	pub repository: Option<String>,
+}
+
+#[allow(dead_code)]
+impl Index
+{
+	pub fn read() -> Result<Index, toml::de::Error>
+	{
+		let mut me = match File::open("web/static/pebbles/data/index")
+		{
+			Ok(f) => f,
+			Err(_) =>
+			{
+				println!("  error: failed to open index");
+				exit(-1);
+			}
+		};
+		let mut contents = String::new();
+		if me.read_to_string(&mut contents).is_err()
+		{
+			println!("  error: failed to read index");
+			exit(-1);
+		}
+		toml::from_str(contents.as_ref())
+	}
+
+	pub fn write(&self) -> Result<String, toml::ser::Error>
+	{
+		toml::to_string(&self)
+	}
+}
+
+
 macro_rules! md
 {
 	($lit:expr) => { |_: &mut Request| { markdown_page($lit) } };
 }
 
 static TEMPLATE:&'static str = include_str!("../template.html");
+static PEBBLES:&'static str = include_str!("../pebbles.html");
 lazy_static! { static ref PAGE_CACHE_MUT: Mutex<HashMap<String, (String, SystemTime)>> = Mutex::new(HashMap::new()); }
 
 fn markdown_page(name: &str) -> PencilResult
@@ -82,6 +132,37 @@ fn markdown_page(name: &str) -> PencilResult
 	Ok(Response::from(contents))
 }
 
+pub fn pebbles(r: &mut Request) -> PencilResult
+{
+	let index = match Index::read()
+	{
+		Ok(i) => i,
+		Err(_) =>
+		{
+			println!("error: couldn't read index");
+			exit(-1);
+		}
+	};
+	let mut content = String::new();
+
+	for entry in index.entries
+	{
+		let current = format!
+		("
+			<tr>
+  				<td>{}</td>
+  				<td>{}</td>
+  				<td>{}</td>
+  				<td><a href=\"{3}\">{3}</a></td>
+  			</tr>
+		", entry.name, entry.versions[0], entry.author, if let Some(s) = entry.repository {s} else {"none".to_string()}
+		);
+		content.push_str(&current);
+	}
+
+	Ok(Response::from(PEBBLES.replace("[[[contents]]]", content.as_ref())))
+}
+
 fn main()
 {
 	let mut app = 	Pencil::new("web");
@@ -90,6 +171,8 @@ fn main()
 
 	app.get("/", "index", index);
 	app.get("/miniref", "miniref", miniref);
+	app.get("/pebbles", "pebbles", pebbles);
+
 	app.before_request(
 		|request|
 		{
