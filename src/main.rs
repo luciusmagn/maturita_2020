@@ -97,9 +97,19 @@ fn markdown_page(name: &str) -> PencilResult
 		else
 		{
 			let mut f = match File::open(&p) { Ok(f) => f, _ => { return Ok(Response::from("404")); } };
-			match f.read_to_string(&mut entry.0)
+			let mut tmp_str = String::new();
+			match f.read_to_string(&mut tmp_str)
 			{
-				Ok(_) => { entry.0.clone() },
+				Ok(_) =>
+				{
+					entry.0 = match file_to_html(Path::new(format!("web/{}.md", name).as_str()))
+					{
+						Ok(s) => s,
+						Err(_) => { return Ok(Response::from("404")); },
+					};
+					entry.1 = date;
+					entry.0.clone()
+				},
 				Err(_) => { return Ok(Response::from("404")); }
 			}
 		}
