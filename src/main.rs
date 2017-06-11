@@ -142,7 +142,7 @@ fn markdown_page(name: &str) -> PencilResult
 	Ok(Response::from(contents))
 }
 
-pub fn pebbles(r: &mut Request) -> PencilResult
+pub fn pebbles(_: &mut Request) -> PencilResult
 {
 	let index = match Index::read()
 	{

@@ -29,7 +29,8 @@ Thanks for appreciating it. As a reward, I get to tell you that
 all the important websites are on the left side. So far, we got
 __Pebbles__ which contains a automatically generated index of 
 packages (aka pebbles) of the __Pebble__ manager and Home for this
-page. There is also a few hidden pages. Try to find them! Or don't.
+page. There is also a few hidden pages (read failures). Try to find them!
+Or don't. 
 
 ## Programming languages
 Over the years, I have played with many programming languages,
@@ -114,7 +115,7 @@ __Google Blockly __was a nice spin on blocks introduced in __Scratch__. Making
 the screen flicker with random colors accompanied with random rectangles
 was nice. Good job, Google.  
 
-__Construct__ was what I used for the final Scratch project instead of using
+__Construct__  was what I used for the final Scratch project instead of using
 __Scratch__. I find it much better and more suited for simple game development.
 Especially when working with kids. Programs now actually act like programs.
 It can also compile to __HTML5__&__JS__&__CSS__ trifecta, which is great if you want
@@ -194,8 +195,8 @@ to do something, run it to through __clippy__, awesome linter which usually even
 you how to fix it.  
 
 I also briefly tried __Go__ and I was deeply disappointed with it. Good things first,
-though. Web frameworks and all web-related libraries are great. The language design
-is simply and easy to pick up. Compilation times are short. BUUUT... Garbage collector
+though. Web frameworks and all web-related libraries are splendid. The language design
+is simple and easy to pick up. Compilation times are short. BUUUT... Garbage collector
 is retarded and slows down the language significantly. And most importantly, __Go__ doesn't
 let you use Allman style brackets. It will literally break your code and net you
 some weird exceptions never afore seen by the likes of ye'. Also semicolons in __Go__...
@@ -231,7 +232,7 @@ term would be __computer__ languages, but you can be never sure, can you?
 * __UE4__
 * __OOC__
 
-Well, the first on the list is __HTML__. I believe that despite all the oddities
+Well, the first one on the list is __HTML__. I believe that despite all the oddities
 about it, it is something every new wannabe developer should know. With __HTML5__,
 there has been a lot of changes and new things introduced to the language,
 but I believe that those are not critical in my opinion. That is, unless you
@@ -245,6 +246,7 @@ enough that it is detrimental for future developers to master it.
 __Jade__ aka __Pug__ (due to some licensing issues with the name) is a templating language
 for Node. It is nice if you want to rid yourself of __HTML__ tags everywhere (read as
 trade them for indentation). I don't like their new logo, though. __2/10__.  
+
 Well, I, a __sworn Java-hater__ have also touched __Java__ in the past. For starters,
 I believe that bashing something without trying it first is foolish, but I also found
 Minecraft mods a very tempting thing to develop. Sheesh. The problem is __Java__ is that
