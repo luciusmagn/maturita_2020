@@ -10,7 +10,7 @@ the C2 language.
 
 If you lack any common sense, you might take a moment to read the
 story about my path in programming, written down below, or take a moment
-to appreaciate the worst monstrosity I even wrote in C.
+to appreaciate the worst monstrosity I ever wrote in C.
 
 
 	for(int32 i = 0; i < tree->children_num; i++)
@@ -111,7 +111,7 @@ Zero. Do you have to manually reset program to start state after each run?
 Yes. Can entities leave the boundaries of the scene? No. Does the code
 execute in real-time? No. __What the fuck__.  
 
-__Google Blockly __was a nice spin on blocks introduced in __Scratch__. Making
+__Google Blockly__ was a nice spin on blocks introduced in __Scratch__. Making
 the screen flicker with random colors accompanied with random rectangles
 was nice. Good job, Google.  
 
