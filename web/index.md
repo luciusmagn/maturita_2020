@@ -262,7 +262,8 @@ and is a great language overall. It didn't stick with me because I don't like
 its syntax and being forced to indent my code in only one, dictated way.  
 
 __TOML__ is a nice new format for storing data. Much easier to edit than __JSON__,
-much simpler to implement than __YAML__, much better specification than __INI__. What else?
+much simpler to implement than __YAML__, much better specification than __INI__. What else?  
+
 I know that __Unreal Engine 4__ is a language, but an engine, yeah. I still felt like
 I should include it here, because it is the only means of game development that
 stuck with me for more than a months and continues to do so. Graphics are great,
