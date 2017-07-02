@@ -175,15 +175,28 @@ pub fn pebbles(_: &mut Request) -> PencilResult
 
 fn main()
 {
-	let mut app = 	Pencil::new("web");
-	let index 	= 	md!("index");
-	let miniref = 	md!("miniref");
-	let style   =   md!("style");
+	let mut app  =  Pencil::new("web");
+
+	let index      = md!("index");
+	let miniref    = md!("miniref");
+	let style      = md!("style");
+	let articles   = md!("articles");
+		let my_langs   = md!("my_langs");
+		let langs_give = md!("langs_give");
+	let rocks_suck = md!("rocks_suck");
+		let rocks      = md!("rocks");
+		let sucks      = md!("sucks");
 
 	app.get("/", "index", index);
 	app.get("/miniref", "miniref", miniref);
 	app.get("/pebbles", "pebbles", pebbles);
 	app.get("/style", "style", style);
+	app.get("/articles", "articles", articles);
+		app.get("/my_langs", "my_langs", my_langs);
+		app.get("/langs_give", "langs_give", langs_give);
+	app.get("/rocks_suck", "rocks_suck", rocks_suck);
+		app.get("/rocks", "rocks", rocks);
+		app.get("/sucks", "sucks", sucks);
 
 	app.before_request(
 		|request|
