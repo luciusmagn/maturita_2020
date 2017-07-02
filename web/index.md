@@ -77,8 +77,8 @@ proper programming concepts, how does OOP work in practice and a wee
 bit about video game development. I am really sad that Flash died,
 only because of how __Actionscript 3__ was great for me. Many thanks to
 __Shaymus22__ for his tutorials, which started out great, but he never
-bothered to finish them. Otherwise, flash really deserves to die. Luckily,
-we still have Haxe and Haxe sounds neat, although I didn't play with it much.  
+bothered to finish them. Otherwise, Flash really deserves to die. Luckily,
+we still have Haxe and it sounds neat, although I didn't play with it much.  
 
 I started with __VB.NET__ when I wanted to do some hacking (in the correct
 meaning of the word, not the distored one made by media) on __Terraria__
