@@ -65,6 +65,7 @@ A module for working with borrowed data.
 
 ## cell
 Share-able mutable containers
+
 	//t: Send, Clone, Copy, Default, Eqs, Ords, From, CoerceUnsized
 	pub struct Cell<T> { /* fields omitted */ }
 		fn get(&self) -> T
