@@ -3,7 +3,7 @@
 extern crate serde_derive;
 #[macro_use]
 extern crate lazy_static;
-extern crate markdown;
+extern crate comrak;
 extern crate sharp_pencil;
 extern crate sha_1;
 extern crate serde;
@@ -11,14 +11,13 @@ extern crate ansi_term;
 extern crate toml;
 
 use std::fs::{File, metadata};
-use std::path::Path;
 use std::io::prelude::*;
 use std::time::SystemTime;
 use std::process::exit;
 use std::collections::HashMap;
 use std::sync::Mutex;
 
-use markdown::file_to_html;
+use comrak::{markdown_to_html, ComrakOptions};
 use ansi_term::Colour::{Green, Blue};
 use sharp_pencil::{Pencil, PencilResult, Request, Response};
 
@@ -102,11 +101,7 @@ fn markdown_page(name: &str) -> PencilResult
 			{
 				Ok(_) =>
 				{
-					entry.0 = match file_to_html(Path::new(format!("web/{}.md", name).as_str()))
-					{
-						Ok(s) => s,
-						Err(_) => { return Ok(Response::from("404")); },
-					};
+					entry.0 = markdown_to_html(&tmp_str, &ComrakOptions::default());
 					entry.1 = date;
 					entry.0.clone()
 				},
@@ -119,11 +114,16 @@ fn markdown_page(name: &str) -> PencilResult
 		let p = format!("web/{}.md", name);
 		let metadata = match metadata(&p)  { Ok(m) => m, _ => { return Ok(Response::from("404")); } };
 		let date = match metadata.modified() { Ok(d) => d, _ => { return Ok(Response::from("404")); } };
-		let s = match file_to_html(Path::new(format!("web/{}.md", name).as_str()))
+
+		let mut f = match File::open(&p) { Ok(f) => f, _ => { return Ok(Response::from("404")); } };
+		let mut tmp_str = String::new();
+
+		if f.read_to_string(&mut tmp_str).is_err()
 		{
-			Ok(s) => s,
-			Err(_) => { return Ok(Response::from("404")); },
-		};
+			return Ok(Response::from("404"));
+		}
+
+		let s = markdown_to_html(&tmp_str, &ComrakOptions::default());
 		page_cache.insert(p, (s.clone(), date.clone()));
 		s
 	};
@@ -178,10 +178,12 @@ fn main()
 	let mut app = 	Pencil::new("web");
 	let index 	= 	md!("index");
 	let miniref = 	md!("miniref");
+	let style   =   md!("style");
 
 	app.get("/", "index", index);
 	app.get("/miniref", "miniref", miniref);
 	app.get("/pebbles", "pebbles", pebbles);
+	app.get("/style", "style", style);
 
 	app.before_request(
 		|request|
