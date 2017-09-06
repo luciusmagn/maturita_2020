@@ -10,3 +10,6 @@ unbiased good things for more languages, do so. I am not saying that
 my finger won't slip from time to time, though.
 
  
+The first language on the list is C, of course. C is a very old language,
+but still widely used, which says something about its design. To this day,
+C is one of my favorite programming languages.
