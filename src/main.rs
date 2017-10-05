@@ -1,4 +1,3 @@
-#![feature(drop_types_in_const)]
 #[macro_use]
 extern crate serde_derive;
 #[macro_use]
@@ -84,7 +83,7 @@ fn markdown_page(name: &str) -> PencilResult
 		let metadata = match metadata(&p)  { Ok(m) => m, _ => { return Ok(Response::from("404")); } };
 		let date = match metadata.modified() { Ok(d) => d, _ => { return Ok(Response::from("404")); } };
 
-		let mut entry = match page_cache.get_mut(&p)
+		let entry = match page_cache.get_mut(&p)
 		{
 			Some(e) => e,
 			None => unreachable!()
