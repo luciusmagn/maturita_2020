@@ -1,95 +1,37 @@
 ## About
-Howdy, my name is Lukáš Hozda (unless you already noticed that \*cough cough\*)
+Howdy, my name is Lukáš Hozda (unless you already noticed that from the sidebar ___\*cough cough\*___)
 and I come from Czech Republic. I happen to like programming, software development,
-C family languages, and well, programming languages and their design in general.
+C family languages, and well, programming languages in general.
 I can also do some web development, but it is not among my main fields of interest.
-What technologies I use and what can I do is listed down below
 
 The purpose of this website is to hold basic information
 about me, some of my notable projects, my rants, some of my knowledge
 and to work as a webserver paired with __Pebble__, a package manager for
-the C2 language.
-
-You might also take a moment to read the
-story about my path in programming, seen in the Articles section,
-or take a moment to appreaciate the worst monstrosity I ever wrote in C
-as code which wasn't intentionally obfuscated.
-
-```
-	for(int32 i = 0; i < tree->children_num; i++)
-  {
-    if(strcmp(tree->children[i]->tag, "target|>") == 0
-      && (searchstr(wanted, "all") 
-        || searchstr(
-            wanted,
-            tree->children[i]
-            ->children[1]
-            ->contents
-          )
-        )
-      )
-        mpc_ast_print(tree->children[i]);
-    if(strcmp(tree->children[i]->tag, "system|>") == 0)
-        for(int32 j = 0; j < tree->children_num; j++)
-            if(strcmp(
-            	tree->children[i]
-            	->children[j]
-            	->tag,
-            	"target|>"
-            ) == 0
-              && (searchstr(wanted, "all") 
-                || searchstr(
-                    wanted,
-                    tree->children[i]
-                    ->children[j]
-                    ->children[1]
-                    ->contents
-                  )
-                )
-              )
-                mpc_ast_print(tree->children[i]->children[j]);
-	}
-```
-
-Thanks for appreciating it. Really stops looking like C, doesn't it?
-As a reward, I get to tell you that all the important websites
-are on the left side. So far, I got __Pebbles__, which contains 
-a automatically generated index of packages (aka pebbles) of the 
-Pebble manager; __Home__ for this page, __Style__, which
-describes the cutting edge Allsucks coding style; __Articles__, which
-contains, well, articles; __Projects__, which lists all my notable
-projects and finally __Socks/Rocks__, which contains rants and praises,
-lists of things that are cool and things that are not
-and code snippets.
-
-There is also a few hidden pages (read failures). Try to find them!
-Or maybe don't.
+the C2 language; gjkbot & rustgrade, a bot an server for students' projects grading.
 
 ## Programming languages
-My favorite programming languages, the ones I will never forget:
+My favorite programming languages:
+* __Rust__
 * __C#__
 * __C__
-* __Rust__
 * __C2__
 
-The other ones I used a bit more. However, from the latter two, I can't say
+The other ones I used to use somewhat often. However, from the latter two, I can't say
 I remember that much. They are past their primes anyways. It was good while it lasted.
 Except VB. VB was agony.
 * __Javascript__
 * __Actionscript 3__
 * __Visual Basic__
 
-The ones I know something something and would be willing to learn more, maybe.
-Especially the functional programming is tempting when I look at F#. With Ceylon,
-I hope that the folks at RedHat finally made a JVM language that doesn't suck:
+I briefly tried these and would be love to learn more, maybe.
+Especially the functional programming is tempting. With Ceylon,
+I really hope that the folks at RedHat finally made a JVM language that doesn't suck:
 * __F#__
-* __C++/CLI__
-* __C++__
-* __Go__
-* __OOC__
+* __OCaml__
 * __Ceylon__
+* __TypeScript__
 
-The ones of my childhood, which have almost faded from my memory. Only good memories
+Used these in childhood, mostly faded away from my memory. Only good memories
 remain. I really recommend Small Basic and NetLogo as entry languages for kids. Especially
 the NetLogo turtles are lovely:
 * __Small Basic__
@@ -119,8 +61,8 @@ it's a bit on the obsolete side, though:
 * __CSS__
 * __Jade aka Pug__
 * __TOML__
-* __JSON__ (does it even count?)
-* __Rusty__ (I invented that one, so the same question?)
+* __JSON__ (does this even count?)
+* __Rusty__ (I invented that one)
 
 ### Technologies
 * __UE4__
@@ -131,6 +73,7 @@ it's a bit on the obsolete side, though:
 * __GDB debugger__ ♥
 * __Construct__
 * __Make__
+* __Cargo__
 * __CMake__ (just a tad)
 
 ### Editors
@@ -148,7 +91,9 @@ it's a bit on the obsolete side, though:
 * __ZedNet__
 * __libc__ ♥
 * __clap-rs__
-* __Hyper__
+* __reqwest__
+* __serde__
+* __libsl__
 * __Pencil__ (SharpPencil fork)
 * __Suckless 'arg.h'__
 * __LiteDB__
