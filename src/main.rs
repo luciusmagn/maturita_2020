@@ -20,6 +20,7 @@ use comrak::{markdown_to_html, ComrakOptions};
 use ansi_term::Colour::{Green, Blue};
 use sharp_pencil::{Pencil, PencilResult, Request, Response};
 
+// Pebbles
 #[derive(Clone, Serialize, Deserialize)]
 pub struct Index
 {
@@ -57,10 +58,55 @@ impl Index
 		}
 		toml::from_str(contents.as_ref())
 	}
+}
 
-	pub fn write(&self) -> Result<String, toml::ser::Error>
+// Rustgrade
+#[derive(Clone, Serialize, Deserialize, Debug)]
+pub struct RIndex {
+	pub users: Vec<User>
+}
+
+#[derive(Clone, Serialize, Deserialize, Debug)]
+pub struct User {
+	pub username: String,
+	pub name: String,
+	pub points: i32,
+	pub log: Vec<LogEntry>,
+}
+
+#[derive(Clone, Serialize, Deserialize, Debug)]
+pub struct LogEntry {
+	pub amount: i32,
+	pub reason: String,
+	pub timestamp: String,
+}
+
+impl RIndex
+{
+	pub fn read() -> Result<RIndex, toml::de::Error>
 	{
-		toml::to_string(&self)
+		let mut contents = String::new();
+		let mut me = match File::open("index")
+		{
+			Ok(f) => f,
+			Err(e) =>
+			{
+				println!("{}", e);
+				let _ = File::create("index");
+				return Ok(RIndex
+				{
+					users: Vec::new()
+				});
+			}
+		};
+
+		if me.read_to_string(&mut contents).is_err()
+		{
+			println!("error: failed to read index");
+			exit(-1);
+		}
+
+		toml::from_str(contents.as_ref())
 	}
 }
 
@@ -72,6 +118,7 @@ macro_rules! md
 
 static TEMPLATE:&'static str = include_str!("../template.html");
 static PEBBLES:&'static str = include_str!("../pebbles.html");
+static RUST:&'static str = include_str!("../rust.html");
 lazy_static! { static ref PAGE_CACHE_MUT: Mutex<HashMap<String, (String, SystemTime)>> = Mutex::new(HashMap::new()); }
 
 fn markdown_page(name: &str) -> PencilResult
@@ -170,6 +217,36 @@ pub fn pebbles(_: &mut Request) -> PencilResult
 	}
 
 	Ok(Response::from(PEBBLES.replace("[[[contents]]]", content.as_ref())))
+}
+
+pub fn rust(_: &mut Request) -> PencilResult
+{
+	let index = match RIndex::read()
+	{
+		Ok(i) => i,
+		Err(_) =>
+		{
+			println!("error: couldn't read rindex");
+			exit(-1);
+		}
+	};
+	let mut content = String::new();
+
+	for entry in index.users
+	{
+		let current = format!
+		("
+			<tr>
+  				<td>{}</td>
+  				<td>{}</td>
+  				<td>{}</td>
+  			</tr>
+		", entry.username, entry.name, entry.points
+		);
+		content.push_str(&current);
+	}
+
+	Ok(Response::from(RUST.replace("[[[contents]]]", content.as_ref())))
 }
 
 fn main()
