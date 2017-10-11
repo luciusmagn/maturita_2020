@@ -266,6 +266,7 @@ fn main()
 	app.get("/", "index", index);
 	app.get("/miniref", "miniref", miniref);
 	app.get("/pebbles", "pebbles", pebbles);
+	app.get("/rust", "rust", rust);
 	app.get("/style", "style", style);
 	app.get("/articles", "articles", articles);
 		app.get("/my_langs", "my_langs", my_langs);
