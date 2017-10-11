@@ -86,13 +86,13 @@ impl RIndex
 	pub fn read() -> Result<RIndex, toml::de::Error>
 	{
 		let mut contents = String::new();
-		let mut me = match File::open("index")
+		let mut me = match File::open("web/static/index")
 		{
 			Ok(f) => f,
 			Err(e) =>
 			{
 				println!("{}", e);
-				let _ = File::create("index");
+				let _ = File::create("web/static/index");
 				return Ok(RIndex
 				{
 					users: Vec::new()
