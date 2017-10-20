@@ -1,5 +1,4 @@
 extern crate toml;
-extern crate serde;
 extern crate comrak;
 extern crate ansi_term;
 extern crate light_pencil;
@@ -48,9 +47,7 @@ impl Index
 		};
 		let mut contents = String::new();
 		if me.read_to_string(&mut contents).is_err()
-		{
-			println!("  error: failed to read index");
-		}
+			{println!("  error: failed to read index");}
 		toml::from_str(contents.as_ref())
 	}
 }
@@ -99,7 +96,6 @@ impl RIndex
 		};
 
 		me.read_to_string(&mut contents).unwrap_or(0);
-
 		toml::from_str(contents.as_ref())
 	}
 }
@@ -130,9 +126,7 @@ fn markdown_page(name: &str) -> PencilResult
 		};
 
 		if entry.1 == date
-		{
-			entry.0.clone()
-		}
+			{entry.0.clone()}
 		else
 		{
 			let mut f = match File::open(&p) { Ok(f) => f, _ => { return Ok(Response::from("404")); } };
@@ -159,9 +153,7 @@ fn markdown_page(name: &str) -> PencilResult
 		let mut tmp_str = String::new();
 
 		if f.read_to_string(&mut tmp_str).is_err()
-		{
-			return Ok(Response::from("404"));
-		}
+			{return Ok(Response::from("404"));}
 
 		let s = markdown_to_html(&tmp_str, &ComrakOptions::default());
 		page_cache.insert(p, (s.clone(), date.clone()));
@@ -173,14 +165,12 @@ fn markdown_page(name: &str) -> PencilResult
 
 pub fn pebbles(_: &mut Request) -> PencilResult
 {
-	let index = if let Ok(i) =
-		Index::read() {i} else {return Ok(Response::from("couldn't read index"));};
+	let index = if let Ok(i) = Index::read() {i} else {return Ok(Response::from("couldn't read index"));};
 	let mut content = String::new();
 
 	for entry in index.entries
 	{
-		let current = format!
-		("
+		let current = format!("
 			<tr>
   				<td>{}</td>
   				<td>{}</td>
@@ -200,11 +190,9 @@ pub fn rust(_: &mut Request) -> PencilResult
 	let index = if let Ok(i) =
 		RIndex::read() {i} else {return Ok(Response::from("couldn't read index"));};
 	let mut content = String::new(); 
- 
 	for entry in index.users
 	{
-		content.push_str(&format!
-		("
+		content.push_str(&format!("
 			<tr>
   				<td>{}</td>
   				<td>{}</td>
@@ -220,19 +208,19 @@ pub fn rust(_: &mut Request) -> PencilResult
 fn main()
 {
 	let mut app  =  Pencil::new("web");
-
-	app.get("/", "index", md!("index"));
-	app.get("/miniref", "miniref", md!("miniref"));
-	app.get("/style", "style", md!("style"));
+	app.get("/",         "index",    md!("index"));
+	app.get("/miniref",  "miniref",  md!("miniref"));
+	app.get("/style",    "style",    md!("style"));
 	app.get("/articles", "articles", md!("articles"));
-		app.get("/my_langs", "my_langs", md!("my_langs"));
+		app.get("/my_langs",   "my_langs",   md!("my_langs"));
 		app.get("/langs_give", "langs_give", md!("langs_give"));
+
 	app.get("/rocks_suck", "rocks_suck", md!("rocks_suck"));
 		app.get("/rocks", "rocks", md!("rocks"));
 		app.get("/sucks", "sucks", md!("sucks"));
 
 	app.get("/pebbles", "pebbles", pebbles);
-	app.get("/rust", "rust", rust);
+	app.get("/rust",    "rust",    rust);
 
 	app.before_request(
 		|request|
