@@ -209,7 +209,6 @@ fn main()
 {
 	let mut app  =  Pencil::new("web");
 	app.get("/",         "index",    md!("index"));
-	app.get("/miniref",  "miniref",  md!("miniref"));
 	app.get("/style",    "style",    md!("style"));
 	app.get("/articles", "articles", md!("articles"));
 		app.get("/my_langs",   "my_langs",   md!("my_langs"));

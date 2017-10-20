@@ -22,3 +22,21 @@ computer related stuff in general.
 * BSD
 * Plan9 (actually 9front, see their webpage for how LSD works)
 * MenuetOS (funny)
+
+# Editors
+* Sublime Text 3
+* ed
+* nano
+* micro
+
+# File viewers
+* feh
+* meh
+
+# File browser
+* w3m
+* noice
+
+# Web browser
+* Firefox
+* w3m

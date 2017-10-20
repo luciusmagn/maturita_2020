@@ -16,3 +16,4 @@ articles about why I think thing X sucks.
 
 # Software
 * Eclipse
+* GNU crap
