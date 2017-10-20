@@ -4,11 +4,10 @@ version = "0.1.0"
 authors = ["Lukáš Hozda <luk.hozda@gmail.com>"]
 
 [dependencies]
-sharp_pencil = "*"
-lazy_static = "*"
-sha-1 = "*"
-comrak = "*"
-ansi_term = "*"
+light_pencil = "0.4.3"
+lazy_static = "0.2.9"
+comrak = "0.2.3"
+ansi_term = "0.10.2"
 serde = "^1.0.4"
 serde_derive = "^1.0.4"
-toml = "*"
+toml = "0.4.5"
