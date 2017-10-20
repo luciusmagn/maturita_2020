@@ -1,24 +1,21 @@
-#[macro_use]
-extern crate serde_derive;
-#[macro_use]
-extern crate lazy_static;
-extern crate comrak;
-extern crate sharp_pencil;
-extern crate sha_1;
-extern crate serde;
-extern crate ansi_term;
 extern crate toml;
+extern crate serde;
+extern crate comrak;
+extern crate ansi_term;
+extern crate light_pencil;
 
-use std::fs::{File, metadata};
-use std::io::prelude::*;
-use std::time::SystemTime;
-use std::process::exit;
-use std::collections::HashMap;
+#[macro_use] extern crate serde_derive;
+#[macro_use] extern crate lazy_static;
+
+use std::io::Read;
 use std::sync::Mutex;
+use std::time::SystemTime;
+use std::fs::{File, metadata};
+use std::collections::HashMap;
 
-use comrak::{markdown_to_html, ComrakOptions};
 use ansi_term::Colour::{Green, Blue};
-use sharp_pencil::{Pencil, PencilResult, Request, Response};
+use comrak::{markdown_to_html, ComrakOptions};
+use light_pencil::{Pencil, PencilResult, Request, Response};
 
 // Pebbles
 #[derive(Clone, Serialize, Deserialize)]
@@ -36,7 +33,6 @@ pub struct Entry
 	pub repository: Option<String>,
 }
 
-#[allow(dead_code)]
 impl Index
 {
 	pub fn read() -> Result<Index, toml::de::Error>
@@ -47,14 +43,13 @@ impl Index
 			Err(_) =>
 			{
 				println!("  error: failed to open index");
-				exit(-1);
+				return toml::from_str("file not found");
 			}
 		};
 		let mut contents = String::new();
 		if me.read_to_string(&mut contents).is_err()
 		{
 			println!("  error: failed to read index");
-			exit(-1);
 		}
 		toml::from_str(contents.as_ref())
 	}
@@ -62,12 +57,14 @@ impl Index
 
 // Rustgrade
 #[derive(Clone, Serialize, Deserialize, Debug)]
-pub struct RIndex {
+pub struct RIndex
+{
 	pub users: Vec<User>
 }
 
 #[derive(Clone, Serialize, Deserialize, Debug)]
-pub struct User {
+pub struct User
+{
 	pub username: String,
 	pub name: String,
 	pub points: i32,
@@ -75,7 +72,8 @@ pub struct User {
 }
 
 #[derive(Clone, Serialize, Deserialize, Debug)]
-pub struct LogEntry {
+pub struct LogEntry
+{
 	pub amount: i32,
 	pub reason: String,
 	pub timestamp: String,
@@ -100,16 +98,11 @@ impl RIndex
 			}
 		};
 
-		if me.read_to_string(&mut contents).is_err()
-		{
-			println!("error: failed to read index");
-			exit(-1);
-		}
+		me.read_to_string(&mut contents).unwrap_or(0);
 
 		toml::from_str(contents.as_ref())
 	}
 }
-
 
 macro_rules! md
 {
@@ -127,7 +120,7 @@ fn markdown_page(name: &str) -> PencilResult
 	let body = if page_cache.contains_key(&format!("web/{}.md", name))
 	{
 		let p = format!("web/{}.md", name);
-		let metadata = match metadata(&p)  { Ok(m) => m, _ => { return Ok(Response::from("404")); } };
+		let metadata = match metadata(&p) { Ok(m) => m, _ => { return Ok(Response::from("404")); } };
 		let date = match metadata.modified() { Ok(d) => d, _ => { return Ok(Response::from("404")); } };
 
 		let entry = match page_cache.get_mut(&p)
@@ -135,6 +128,7 @@ fn markdown_page(name: &str) -> PencilResult
 			Some(e) => e,
 			None => unreachable!()
 		};
+
 		if entry.1 == date
 		{
 			entry.0.clone()
@@ -173,32 +167,14 @@ fn markdown_page(name: &str) -> PencilResult
 		page_cache.insert(p, (s.clone(), date.clone()));
 		s
 	};
-	let mut f = match File::open("template.html")
-	{
-		Ok(f) => f,
-		Err(_) =>
-		{
-			eprintln!("error: couldn't open template.html");
-			exit(-1);
-		}
-	};
-	let mut wrapper = String::new();
-	f.read_to_string(&mut wrapper).unwrap();
 	let contents = TEMPLATE.replace("[[[contents]]]", body.as_ref());
 	Ok(Response::from(contents))
 }
 
 pub fn pebbles(_: &mut Request) -> PencilResult
 {
-	let index = match Index::read()
-	{
-		Ok(i) => i,
-		Err(_) =>
-		{
-			println!("error: couldn't read index");
-			exit(-1);
-		}
-	};
+	let index = if let Ok(i) =
+		Index::read() {i} else {return Ok(Response::from("couldn't read index"));};
 	let mut content = String::new();
 
 	for entry in index.entries
@@ -221,20 +197,13 @@ pub fn pebbles(_: &mut Request) -> PencilResult
 
 pub fn rust(_: &mut Request) -> PencilResult
 {
-	let index = match RIndex::read()
-	{
-		Ok(i) => i,
-		Err(_) =>
-		{
-			println!("error: couldn't read rindex");
-			exit(-1);
-		}
-	};
-	let mut content = String::new();
-
+	let index = if let Ok(i) =
+		RIndex::read() {i} else {return Ok(Response::from("couldn't read index"));};
+	let mut content = String::new(); 
+ 
 	for entry in index.users
 	{
-		let current = format!
+		content.push_str(&format!
 		("
 			<tr>
   				<td>{}</td>
@@ -242,8 +211,7 @@ pub fn rust(_: &mut Request) -> PencilResult
   				<td>{}</td>
   			</tr>
 		", entry.username, entry.name, entry.points
-		);
-		content.push_str(&current);
+		));
 	}
 
 	Ok(Response::from(RUST.replace("[[[contents]]]", content.as_ref())))
@@ -253,27 +221,18 @@ fn main()
 {
 	let mut app  =  Pencil::new("web");
 
-	let index      = md!("index");
-	let miniref    = md!("miniref");
-	let style      = md!("style");
-	let articles   = md!("articles");
-		let my_langs   = md!("my_langs");
-		let langs_give = md!("langs_give");
-	let rocks_suck = md!("rocks_suck");
-		let rocks      = md!("rocks");
-		let sucks      = md!("sucks");
+	app.get("/", "index", md!("index"));
+	app.get("/miniref", "miniref", md!("miniref"));
+	app.get("/style", "style", md!("style"));
+	app.get("/articles", "articles", md!("articles"));
+		app.get("/my_langs", "my_langs", md!("my_langs"));
+		app.get("/langs_give", "langs_give", md!("langs_give"));
+	app.get("/rocks_suck", "rocks_suck", md!("rocks_suck"));
+		app.get("/rocks", "rocks", md!("rocks"));
+		app.get("/sucks", "sucks", md!("sucks"));
 
-	app.get("/", "index", index);
-	app.get("/miniref", "miniref", miniref);
 	app.get("/pebbles", "pebbles", pebbles);
 	app.get("/rust", "rust", rust);
-	app.get("/style", "style", style);
-	app.get("/articles", "articles", articles);
-		app.get("/my_langs", "my_langs", my_langs);
-		app.get("/langs_give", "langs_give", langs_give);
-	app.get("/rocks_suck", "rocks_suck", rocks_suck);
-		app.get("/rocks", "rocks", rocks);
-		app.get("/sucks", "sucks", sucks);
 
 	app.before_request(
 		|request|
