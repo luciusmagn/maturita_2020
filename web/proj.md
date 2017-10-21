@@ -30,7 +30,7 @@ since fall 2017.
 Nary is my experimental fork with a lot of dangerous
 code and multithreading.
 
-Rhai repository: <https://github.com/jonathandturner/rhai>
+Rhai repository: <https://github.com/jonathandturner/rhai>  
 Nary repository: <https://github.com/luciusmagn/nary_lang>
 
 ## light_pencil
@@ -41,7 +41,7 @@ My fork contains many simplifications, unfinished and broken
 stuff removed, clippy lints fixed, updated dependencies,
 unneeded stuff removed and stripped from everything else
 I didn't need, including documentation. The codebase has
-been roughly halved, dep count lowered by fiveand compile
+been roughly halved, dep count lowered by five and compile
 times pleasantly decreased.
 
 Repository: <https://github.com/luciusmagn/light_pencil>
