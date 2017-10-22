@@ -6,11 +6,10 @@ use light_pencil::{Response, PencilResult, Request};
 
 use RUST;
 use PEBBLES;
-use TEMPLATE;
 use PAGE_CACHE_MUT;
 use types::{Index, RIndex};
 
-pub fn markdown_page(name: &str) -> PencilResult
+pub fn markdown_page(name: &str, template: &str) -> PencilResult
 {
 	let mut page_cache = PAGE_CACHE_MUT.lock().unwrap();
 	let body = if page_cache.contains_key(&format!("web/{}.md", name))
@@ -59,7 +58,7 @@ pub fn markdown_page(name: &str) -> PencilResult
 		page_cache.insert(p, (s.clone(), date.clone()));
 		s
 	};
-	let contents = TEMPLATE.replace("[[[contents]]]", body.as_ref());
+	let contents = template.replace("[[[contents]]]", body.as_ref());
 	Ok(Response::from(contents))
 }
 
