@@ -1,6 +1,6 @@
 [package]
 name = "magnusi-tech-server"
-version = "0.1.0"
+version = "0.5.3"
 authors = ["Lukáš Hozda <luk.hozda@gmail.com>"]
 
 [dependencies]

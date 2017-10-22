@@ -1,6 +1,6 @@
 [root]
 name = "magnusi-tech-server"
-version = "0.1.0"
+version = "0.5.3"
 dependencies = [
  "ansi_term 0.10.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "comrak 0.2.3 (registry+https://github.com/rust-lang/crates.io-index)",
