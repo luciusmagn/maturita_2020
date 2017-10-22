@@ -199,7 +199,7 @@ klonovat z Githubu (=stahovat) pomocí `git clone URL`, kde *URL* je odkaz na da
 
 <h2 id="aritmetika">Aritmetika a proměnné</h2>  
 
-1. __Kalkulačka v1.0__ - Variace na <strike>večerní téma</strike> Hello World
+1. __Kalkulačka v1.0__ - Variace na <strike>renesační téma</strike> Hello World
 	1. Přesuňte se do složky, kde si schraňujete kód z hodin v příkazovém řádku/terminálu
 	0. Vytvořte nový projekt pomocí `cargo new calc --bin` (nezapomeňte na `--bin`)
 	0. Složku __calc__ ve vaší složce projektů otevřete ve VSCode pomocí __Ctrl+K,Ctrl+O__
