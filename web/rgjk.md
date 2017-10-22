@@ -58,6 +58,10 @@ ls #zobrazí seznam souborů ve stávající složce
 pwd #zobrazí název stávající složky (resp. cesty)
 ```
 
+POZN: Pokud nepoužívate vlastní počítač, doporučuji používat pořád ten samý erární počítač.
+Pokud se bojíte o bezpečnost vašeho kódu, můžete vždycky repozitáře smazat a znovu
+klonovat z Githubu (=stahovat) pomocí `git clone URL`, kde *URL* je odkaz na daný repozitář.
+
 <h2 id="priprava">Příprava</h2>  
 
 0. __Instalace Linuxu__ - tento krok je dobrovolný, Rust je totiž multiplatformní:  
@@ -89,7 +93,9 @@ pwd #zobrazí název stávající složky (resp. cesty)
 				0. Solus - `sudo eopkg install git`
 			- přítomnost programu se dá ověřit příkazem `git --version`, který vypíše verzi gitu
 				a skončí
-			- po instalaci bude potřeba minimální konfigurace
+			- po instalaci bude potřeba minimální konfigurace:
+				- `git config --global user.email vas_email_na_github@domena.com`
+				- `git config --global user.name "Vaše Jméno"`
 0. __Instalace Rustu__  
 	1. Nejdříve je potřeba nainstalovat Rustový toolchain (=sada nástrojů pro vývoj).
 		 V případě Rustu to je překladač (__rustc__), balíčkovač (__Cargo__),
@@ -134,6 +140,14 @@ pwd #zobrazí název stávající složky (resp. cesty)
 		5. Při prvním otevření nějakého Rustového zdrojového souboru se pravděpodobně bude
 			 VSCode vztekat že nemá všechny nástroje a nabídne jejich instalaci, vše potvrďte
 		6. Když se zeptá na výchozí toolchain, zvolte nightly
+0. __Instalace Gitu__
+	1. Pokud máte Linux, instrukce jsou u kroku 0 - instalace Linuxu
+	0. Windows - <https://git-scm.com/download/win>
+	0. OSX - <https://git-scm.com/download/mac>
+	0. Po instalaci je zapotřebí provést minimální konfiguraci (příkazy opět do příkazového řádku/
+		 terminálu)
+		 - `git config --global user.email vas_email_na_github@domena.com`
+		 - `git config --global user.name "Vaše Jméno"`
 
 <h2 id="uvod">Úvod</h2>  
 
@@ -228,4 +242,13 @@ pwd #zobrazí název stávající složky (resp. cesty)
 		     println!("vysledek: {}", a + b);
 		 }
 		 ```
-	3. Kalkučka má nyní defacto 100% přesnost výsledků
+	3. Spustíme pomocí __Cargo: Run__ z příkazové palety VSCode (__Ctrl+Shift+P__) nebo pomocí příkazu do
+	   terminálu/příkazového řádku `cargo run`
+	0. Kalkučka má nyní defacto 100% přesnost výsledků. Ovšem, za přesnost se platí. Moudrý muž kdysi řekl,
+	   že programování je balancování kompromisů a hledání rovnováhy mezi radostí a frustrací.
+	0. V prezentaci již je vysvětleno, co je proměnná (v programu jsou dvě - proměnná `a` a proměnná `b`).
+	   Zkuste zaměnit výpočetní operaci za něco z `-, *, /, <<, >>, %` a měnit hodnoty proměnných.
+	0. Zkuste přidat více proměnných a vypočítat něco trošku 'složitějšího', třeba plochu krychle nebo válce.
+	0. Zkuste použít závorky ke změně pořadí vyhodnocování operací.
+	0. Když budete spokojeni s výsledkem, vytvořte revizi pomocí `git add .` a `git commit -m "váš popis změn"`
+	   a nahrajte změny na github s `git push`
