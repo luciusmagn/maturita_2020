@@ -87,8 +87,9 @@ pwd #zobrazí název stávající složky (resp. cesty)
 				1. Ubuntu atd. - `sudo apt-get install git`
 				0. Archové distribuce (Manjaro) - `sudo pacman -S git`
 				0. Solus - `sudo eopkg install git`
-			- přítomnost program se dá ověřit příkazem `git --version`, který vypíše verzi gitu
+			- přítomnost programu se dá ověřit příkazem `git --version`, který vypíše verzi gitu
 				a skončí
+			- po instalaci bude potřeba minimální konfigurace
 0. __Instalace Rustu__  
 	1. Nejdříve je potřeba nainstalovat Rustový toolchain (=sada nástrojů pro vývoj).
 		 V případě Rustu to je překladač (__rustc__), balíčkovač (__Cargo__),
@@ -207,4 +208,24 @@ pwd #zobrazí název stávající složky (resp. cesty)
 0. __Správa kódu__ - Postupně se vyvíjející programy jako je naše kalkulačka si přímo říkají
 	 o používání nekterého verzovacího systému.  V našem případě to je Git v konjunkci s Githubem
 	1. Cargo automaticky udělalo ze složky __calc__ repozitář, přesuňte se do ní v příkazovém řádku
-	0. 
+	0. Vytvořte stejnojmenný repozitář na githubu
+	0. Na Githubu kliknete na znaménko __+__ v pravém horním rohu obrazovky nebo na tlačítko New Repository:  
+		 <img src="http://www.softpost.org/wp-content/uploads/2016/06/new-repository-on-GitHub.png"></img>
+	0. Vytvoříte nový repozitář. Čistě teoreticky, jméno je jedno ale pro konzistenci se hodí ho pojmenovat
+		 taky __calc__. Nezaškrtávejte možnost "Initialize this repository with README"
+	0. Přidejte origin z Githubu pomocí `git remote add origin URL`, kde *URL* je odkaz na repozitář _calc_
+		 - Pokud uděláte překlep, můžete origin smazat pomocí `git remote remove origin` a opakovat minulý příkaz
+	0. Zaznamejte všechny změny pomocí `git add .` a vytvořte první revizi pomocí `git commit -m "první revize"`
+	0. Nahrajte změny na Github příkazem `git push -u origin master`
+		 - část `-u origin master` se píše jen poprvé
+0. __Kalkulačka v2.0__
+	1. Pokud nemáte otevřený editor a příkazový řádek/terminál, otevřete si znovu složku __calc__ v obojím
+	0. V souboru main.rs nyní uděláme drobný upgrade - starý kód nahradíme tímto:  
+		 ```rust
+		 fn main() {
+		     let a = 5;
+		     let b = 2;
+		     println!("vysledek: {}", a + b);
+		 }
+		 ```
+	3. Kalkučka má nyní defacto 100% přesnost výsledků
