@@ -20,18 +20,25 @@ use util::{markdown_page, rust, pebbles};
 
 macro_rules! md
 {
-	($lit:expr) => { |_: &mut Request| { markdown_page($lit) } };
+	($lit:expr) => { |_: &mut Request| { markdown_page($lit, TEMPLATE) } };
 }
 
+macro_rules! raw_md
+{
+	($lit:expr) => { |_: &mut Request| { markdown_page($lit, RAW_TEMPLATE) } };
+}
+
+static RAW_TEMPLATE:&'static str = include_str!("../raw_template.html");
 static TEMPLATE:&'static str = include_str!("../template.html");
 static PEBBLES:&'static str = include_str!("../pebbles.html");
 static RUST:&'static str = include_str!("../rust.html");
-lazy_static! { static ref PAGE_CACHE_MUT: Mutex<HashMap<String, (String, SystemTime)>> = Mutex::new(HashMap::new()); }
 
+lazy_static! { static ref PAGE_CACHE_MUT: Mutex<HashMap<String, (String, SystemTime)>> = Mutex::new(HashMap::new()); }
 
 fn main()
 {
 	let mut app  =  Pencil::new("web");
+
 	app.get("/",         "index",    md!("index"));
 	app.get("/style",    "style",    md!("style"));
 	app.get("/proj",     "proj",     md!("proj"));
@@ -42,6 +49,8 @@ fn main()
 	app.get("/rocks_suck", "rocks_suck", md!("rocks_suck"));
 		app.get("/rocks", "rocks", md!("rocks"));
 		app.get("/sucks", "sucks", md!("sucks"));
+
+	app.get("/rgjk",    "rgjk",    raw_md!("rgjk"));
 
 	app.get("/pebbles", "pebbles", pebbles);
 	app.get("/rust",    "rust",    rust);

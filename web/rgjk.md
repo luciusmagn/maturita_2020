@@ -1,0 +1,210 @@
+<img src="https://www.rust-lang.org/logos/rust-logo-256x256-blk.png" style="display: block;margin: 0 auto;"></img>
+<h1 style="text-align: center">GJK Rust - Kompletní návod</h1>
+
+Kompletní návod pro programování v Rustu podle letošního
+předmětu. S postupem času se bude návod prodlužovat. Kroky
+jsou doporučeným řešením, v mnoha případech jsou i alternativní
+způsoby. Nemám zkušenosti s OSX, takže pokud je něco špatně, napište
+mi: __hozda@gjk.cz__. Návod obsahuje příkazy. V Linuxu/OSX pro
+terminál, na Windows pro příkazovou řádku/CMD.exe.
+
+## Obsah
+- [Info](#info)
+- [Příprava](#priprava)
+- [Úvod](#uvod)
+- [Aritmetika a Proměnné](#aritmetika)
+
+<h2 id="info">Info</h2>  
+
+
+Na Windows se příkazová řádka otevře buď přes nabídku Start, nebo
+v jakékoliv složce pomocí zkratky Shift+Right click, které přidá
+možnost otevření příkazové řádky v dané složce do kontextové nabídky:
+
+<img src="https://i.stack.imgur.com/0DLsh.png"></img>
+
+Na Linuxu se terminál otevírá buď přes kontextovou nabídku ve
+složce, přes menu (jako na Windows), nebo pomocí zkratky Alt+F2:
+
+<img src="http://cdn.makeuseof.com/wp-content/uploads/2011/01/altf2-main.png?x97327"></img>
+
+V některých případech návod vyžaduje, aby byla příkazová řádka v
+určité složce. K tomu lze využít několik jednoduchých příkazů. Znaky za #
+jsou komentáře, to se do příkazového řádku nepíše:
+
+Návod předpokládá, že se čtenář alespoň zběžně podíval na prezentace
+z hodin na <https://github.com/rust-gjk/Materialy>
+
+
+### Windows
+```bash
+cd         #přesune se do domovské složky
+cd ..      #přesune se do nadřazené složky - 'projekt\src\' -> 'projekt\'
+cd projekt #přesune se do složky 'projekt', nacházející se ve stávájícím adresáři
+cd C:\programovaní\projekt #přesune se do složky
+
+dir #zobrazí seznam souborů ve stávající složce
+echo %cd% #zobrazí název stávající složky (resp. cesty)
+```
+
+### Linux
+```bash
+cd         #přesune se do domovské složky
+cd ..      #přesune se do nadřazené složky - 'projekt/src' -> 'projekt/'
+cd projekt #přesune se do složky 'projekt', nacházející se ve stávájícím adresáři
+cd /programovaní/projekt #přesune se do složky
+
+ls #zobrazí seznam souborů ve stávající složce
+pwd #zobrazí název stávající složky (resp. cesty)
+```
+
+<h2 id="priprava">Příprava</h2>  
+
+0. __Instalace Linuxu__ - tento krok je dobrovolný, Rust je totiž multiplatformní:  
+	1. Vyberte si distribuci - pro začátečníky je vhodná nějaká variace Ubuntu
+	   nebo případně Mint, Manjaro, Elementary OS, Solus a Linux Lite
+	0. Na stránkách jednotlivých distribucí je návod instalace  
+	0. Distribuce by měla mít tyto čtyři programy:  
+		1. <u>Terminál</u>  
+			- zpravidla už nainstalovaný
+			- všechny příkazy jsou pro terminál
+		0. <u>curl</u>  
+			- často bývá nainstalovaný, pokud ne, otevřete terminál a napište
+			  následující příkaz (podle distribuce):  
+			  1. Ubuntu atd. - `sudo apt-get install curl`
+			  0. Archové distribuce (Manjaro) - `sudo pacman -S curl`
+			  0. Solus - `sudo eopkg install curl`
+			- přítomnost programu se dá ověřit příkazem `curl --version`, který vypíše verzi curlu
+				a skončí
+		0. <u>Prohlížeč</u>
+			- taky většinou nainstalovaný
+				1. Ubuntu atd. - `sudo apt-get install firefox`
+				0. Archové distribuce (Manjaro) - `sudo pacman -S firefox`
+				0. Solus - `sudo eopkg install firefox`
+		0. <u>Git</u>
+			- může být nainstalovaný, ale z těchto programů je na to nejmenší šance
+			- systém pro verzování, termín vysvětlen v prezentaci z druhé hodiny
+				1. Ubuntu atd. - `sudo apt-get install git`
+				0. Archové distribuce (Manjaro) - `sudo pacman -S git`
+				0. Solus - `sudo eopkg install git`
+			- přítomnost program se dá ověřit příkazem `git --version`, který vypíše verzi gitu
+				a skončí
+0. __Instalace Rustu__  
+	1. Nejdříve je potřeba nainstalovat Rustový toolchain (=sada nástrojů pro vývoj).
+		 V případě Rustu to je překladač (__rustc__), balíčkovač (__Cargo__),
+		 debuggery (__rust-lldb__ & __rust-gdb__)  a dokumentační nástroj (__rustdoc__)  
+			&emsp;&emsp;1. OSX/Linux - `curl https://sh.rustup.rs -sSf | sh`  
+			&emsp;&emsp;2. Windows - instrukce na <https://www.rust-lang.org/en-US/install.html> <br><br>
+	0. Za chvíli se v terminálu, příkazovém řádku objeví toto:  
+		 <img src="https://fungos.github.io/images/1/rustup-console.png"></img>
+		 Pro předmět potřebujeme __nightly__ kanál, tzn:  
+		 	&emsp;&emsp;1. Zmáčkněte klávesu __2__ a potvrdíte  
+		 	&emsp;&emsp;2. Klávesu __Enter__ pro zachování tripletu  
+		 	&emsp;&emsp;3. Napíšete __nightly__ jako kanál a potvrdíte  
+		 	&emsp;&emsp;4. Zmáčknete __'y'__ pro potvrzení změny proměnné __$PATH__ <br><br>
+	0. V rámci minut by se měl Rust stáhnout a nainstalovat
+	0. Poté je potřeba restartovat počítač  
+		- Na Linuxu/OSX je též možné použít příkaz `source $HOME/.cargo/env`, který umožní
+			používání nástrojů Rustu okamžitě v daném terminálovém okně. Rust bude globálně
+			použitelný až po restartování
+0. __Konfigurace Rustu__ - Po instalaci je potřeba jeden příkaz na konfiguraci
+	1. Windows/Linux/OSX - `rustup default nightly`
+	0. Tento příkaz zvolí __nightly__ kanál jako výchozí
+	0. Pro výuku používáme kanál __nightly__, protože je pro něj dostupných několik
+		 užitečných nástrojů a lze používat experimentální části Rustu
+0. __Instalace editoru__
+	- Rust sice patří mezi jazyky, které nejsou přímo vázené na IDE
+	(=integrované vývojové prostředí), takže programy může člověk vyvíjet s čímkoliv,
+	třeba i Poznámkovým blokem. Hodí se ale nainstalovat si editor, který nám práci
+	usnadní. V rámci předmětu silně doporučuji VSCode, není ovšem problém vybrat
+	si i jiný editor.
+	- Instalace VSCode
+		- Windows: <https://code.visualstudio.com/Download>
+		- OSX: <https://code.visualstudio.com/Download>
+		- Linux:
+			- Ubuntu: <https://code.visualstudio.com/Download>
+			- Arch: `yaourt -S visual-studio-code-oss`  (pozorně čtěte instrukce na obrazovce)
+	- Dále je také potřeba nainstalovat si rozšíření pro správnou podporu Rustu
+		1. Otevřete paletu příkazů pomocí __Ctrl+Shift+P__
+		2. Napište/Zvolte __Install Extensions__
+		3. Objeví se boční panel, do něj napište _'Rust'_ a nechte instalovat první výsledek
+		   vyhledávání (autor __kalitaalexey__)
+		4. Restartujte VSCode
+		5. Při prvním otevření nějakého Rustového zdrojového souboru se pravděpodobně bude
+			 VSCode vztekat že nemá všechny nástroje a nabídne jejich instalaci, vše potvrďte
+		6. Když se zeptá na výchozí toolchain, zvolte nightly
+
+<h2 id="uvod">Úvod</h2>  
+
+1. __Tvorba prvního programu__ - Hello World
+	1. Hello World je malý počítačový program, který vypíše text "Hello World" do standardního
+		 výstupu (=příkazová řádka nebo panel v editoru). První verze - v jazyce C - vznikla už
+		 skoro před 40 lety.
+	0. Někde v systému (pokud možno na dobře dostupném místě) si vytvořte složku, kde budete schraňovat
+		 kód z hodin, případně domácí úkoly
+	0. Otevřete příkazovou řádku/terminál a vstupte do složky (buď termininál otevřete přímo ve složce
+		 nebo pomocí `cd`, `ls`/`dir`)
+	0. Když budete ve složce, vytvořte nový projekt pomocí nástroje Cargo - `cargo new hello_world --bin`
+		 - nezapoměňte na přepínač `--bin`, jinak Cargo vygeneruje knihovnu
+	0. Pokud jste správně postupovali, bude to v adresáři s projekty vypadat zhruba takto:
+	```bash
+	.
+	└── hello_world
+	    ├── Cargo.toml
+	    └── src
+	        └── main.rs
+	```
+	6. Složku hello_world otevřte v editoru. Ve VSCode je možnost otevřít složku v nabídce Soubor, nebo
+		 pomocí klávesové zkratky __Ctrl+K,Ctrl+O__
+	0. V levém panelu se zobrazí soubory, otevřte __main.rs__ a uvidíte vygenerovaný Hello World
+	```rust
+	fn main() {
+		println!("Hello, World!");
+	}
+	```
+	8. Program lze spustit pomocí možnosti __Cargo: Run__ ve VSCode v paletě příkazů (Ctrl+Shift+P) nebo
+		 příkazem `cargo run` v příkazovém řádku (musíte vstoupit do složky *hello\_world* pomocí `cd`)
+	0. Co jednotlivé části programu znamenají je vysvětlěno v prezentaci; zkuste změnit text
+0. __Uložení v repozitáři na Githubu__
+	1. Tento krok je (zatím) též dobrovolný, slouží jako předzvěst správné správy kódu pomocí Gitu
+	0. Cargo dělá ze svých projektů Gitové repozitáře automaticky, tak o to se starat nemusíme
+	0. Na Githubu kliknete na znaménko __+__ v pravém horním rohu obrazovky nebo na tlačítko New Repository:  
+		 <img src="http://www.softpost.org/wp-content/uploads/2016/06/new-repository-on-GitHub.png"></img>
+	0. Vytvoříte nový repozitář. Čistě teoreticky, jméno je jedno ale pro konzistenci se hodí ho pojmenovat
+		 __hello\_world__ jako projekt samotný. Nezaškrtávejte možnost "Initialize this repository with README":  
+		 <img src="/static/repo-create-name.png"></img>
+	0. Vstoupíte do složky *hello\_world* v příkazovém řádku/terminálu
+	0. Přidejte repozitář na Githubu jako origin příkazem `git remote add origin URL` kde *URL* bude pravděpodobně
+		 *https://github.com/__vase\_jmeno__/hello_world*. Zkrátka odkaz na váš repozitář na Githubu.
+	0. Zaznamenáte všechny změny pomocí `git add .` (nezapoměňte na tečku a správné mezery)
+	0. Vytvoříte revizi pomocí `git commit -m "první revize"` (pozor na uvozovky)
+	0. Nahrajte změny na Github příkazem `git push -u origin master`
+		 - část `-u origin master` se píše jen při prvním nahrávání změn
+		 - pro další změny opakujte poslední 3 kroky
+
+<h2 id="aritmetika">Aritmetika a proměnné</h2>  
+
+1. __Kalkulačka v1.0__ - Variace na <strike>večerní téma</strike> Hello World
+	1. Přesuňte se do složky, kde si schraňujete kód z hodin v příkazovém řádku/terminálu
+	0. Vytvořte nový projekt pomocí `cargo new calc --bin` (nezapomeňte na `--bin`)
+	0. Složku __calc__ ve vaší složce projektů otevřete ve VSCode pomocí __Ctrl+K,Ctrl+O__
+	   a vložte následující kód:
+	   ```rust
+	   fn main() {
+	       println!("mezi +nekonečno a -nekonečno");
+	   }
+	   ```
+	4. Program otestujte pomocí `cargo run -- 4 + 5 * 2 ^ 2 / 2 - 9 << 1 >> 2 + 6`
+		 - za dvě pomlčky napište libovolný výraz
+		 - dvě pomlčky slouží jako oddělovač:  
+		 	 - všechno před pomlčkami jsou parametry pro Cargo
+		 	 - všechno za pomlčkami jsou parametry pro váš program
+	0. Jestli vám program vypíše výsledek a ne chybu, tak jste právě stali autory
+		 nejchytřejší kalkulačky na světě - kalkulačky, která dokáže vyhodnotit každý výraz,
+		 včetně chybných a neúplných výrazů - kvantová extrapolace kalkulačky výrazy domyslí
+	0. Bohužel výsledky, byť správné, nemají moc velkou přesnost. Vylepšíme je proto v další
+		 iteraci kalkulačky
+0. __Správa kódu__ - Postupně se vyvíjející programy jako je naše kalkulačka si přímo říkají
+	 o používání nekterého verzovacího systému.  V našem případě to je Git v konjunkci s Githubem
+	1. Cargo automaticky udělalo ze složky __calc__ repozitář, přesuňte se do ní v příkazovém řádku
+	0. 
