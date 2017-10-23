@@ -18,11 +18,13 @@ mod util;
 
 use util::{markdown_page, rust, pebbles};
 
+// site w/ sidebar
 macro_rules! md
 {
 	($lit:expr) => { |_: &mut Request| { markdown_page($lit, TEMPLATE) } };
 }
 
+// site w/out sidebar
 macro_rules! raw_md
 {
 	($lit:expr) => { |_: &mut Request| { markdown_page($lit, RAW_TEMPLATE) } };

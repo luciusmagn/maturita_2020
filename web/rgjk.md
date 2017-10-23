@@ -5,7 +5,7 @@ Kompletní návod pro programování v Rustu podle letošního
 předmětu. S postupem času se bude návod prodlužovat. Kroky
 jsou doporučeným řešením, v mnoha případech jsou i alternativní
 způsoby. Nemám zkušenosti s OSX, takže pokud je něco špatně, napište
-mi: __hozda@gjk.cz__. Návod obsahuje příkazy. V Linuxu/OSX pro
+mi: __hozda@gjk.cz__. Návod obsahuje příkazy. Na Linuxu/OSX pro
 terminál, na Windows pro příkazovou řádku/CMD.exe.
 
 ## Obsah
@@ -18,7 +18,7 @@ terminál, na Windows pro příkazovou řádku/CMD.exe.
 
 
 Na Windows se příkazová řádka otevře buď přes nabídku Start, nebo
-v jakékoliv složce pomocí zkratky Shift+Right click, které přidá
+v jakékoliv složce pomocí zkratky Shift+Right-Click, která přidá
 možnost otevření příkazové řádky v dané složce do kontextové nabídky:
 
 <img src="https://i.stack.imgur.com/0DLsh.png"></img>
@@ -250,5 +250,31 @@ klonovat z Githubu (=stahovat) pomocí `git clone URL`, kde *URL* je odkaz na da
 	   Zkuste zaměnit výpočetní operaci za něco z `-, *, /, <<, >>, %` a měnit hodnoty proměnných.
 	0. Zkuste přidat více proměnných a vypočítat něco trošku 'složitějšího', třeba plochu krychle nebo válce.
 	0. Zkuste použít závorky ke změně pořadí vyhodnocování operací.
+	0. Když budete spokojeni s výsledkem, vytvořte revizi pomocí `git add .` a `git commit -m "váš popis změn"`
+	   a nahrajte změny na github s `git push`
+0. __Kalkulačka v3.0__
+	1. Pokud nemáte otevřený editor a příkazový řádek/terminál, otevřete si znovu složku __calc__ v obojím.
+	0. main.rs prodělá další změnu:  
+		 ```rust
+		 fn main() {
+		     let argumenty: Vec<_> = args().collect();
+		     let a: i32 = argumenty[1].parse().unwrap();
+		     let b: i32 = argumenty[2].parse().unwrap();
+		     println!("vysledek: {}", a + b);
+		 }
+		 ```
+		 Tentokrát bylo zavedeno několik nových věcí:  
+		 - `let argumenty: Vec<_> = args().collect();` - vytvoří seznam sbírku argumentů příkazové řádky
+		 	- _Vec<\_>_ znamená Vector obsahující prvky o typu, který identifikuje sám překladač.
+		 		- Vektor je jedno rozměrná sbírka (=normální seznam)
+		 	- `args().collect()` posbírá všechny argumenty příkazové řádky a udělá znich sbírku.
+		 - `argumenty[1].parse().unwrap()` - 'Vem druhý prvek sbírky `argumenty` (`argumenty[1]`),
+		 		pokus se jej zkonvertovat na požadovaný typ (`.parse()`) a získej výsledek konverze nebo ukonči program
+		 		(`.unwrap()`) 
+		 - `argumenty[2].parse().unwrap()` - 'Vem třetí prvek sbírky `argumenty`... atd.'
+	0. Sbírky začínají počítat od nuly; je to z historických důvodů, kdy sbírky byly pouhým ukazatelem na první prvek
+		 a další prvky se získavaly přičítáním k adrese ukazatele (adresa + 0 == první prvek, adresa + 1 == druhý prvek ...)
+	0. Program spustíte příkazem `cargo run -- cislo1 cislo2`, čísla si zvolte libovolná, jediná podmínka je aby byla celá
+	0. Zkuste opět zaměnit početní operace, číst více čísel nebo číselné typy
 	0. Když budete spokojeni s výsledkem, vytvořte revizi pomocí `git add .` a `git commit -m "váš popis změn"`
 	   a nahrajte změny na github s `git push`
