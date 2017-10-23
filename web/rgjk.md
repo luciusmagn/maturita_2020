@@ -108,7 +108,7 @@ klonovat z Githubu (=stahovat) pomocí `git clone URL`, kde *URL* je odkaz na da
 		 	&emsp;&emsp;1. Zmáčkněte klávesu __2__ a potvrdíte  
 		 	&emsp;&emsp;2. Klávesu __Enter__ pro zachování tripletu  
 		 	&emsp;&emsp;3. Napíšete __nightly__ jako kanál a potvrdíte  
-		 	&emsp;&emsp;4. Zmáčknete __'y'__ pro potvrzení změny proměnné __$PATH__ <br><br>
+		 	&emsp;&emsp;4. Napište __'y'__ pro potvrzení změny proměnné __$PATH__ <br><br>
 	0. V rámci minut by se měl Rust stáhnout a nainstalovat
 	0. Poté je potřeba restartovat počítač  
 		- Na Linuxu/OSX je též možné použít příkaz `source $HOME/.cargo/env`, který umožní
@@ -120,7 +120,7 @@ klonovat z Githubu (=stahovat) pomocí `git clone URL`, kde *URL* je odkaz na da
 	0. Pro výuku používáme kanál __nightly__, protože je pro něj dostupných několik
 		 užitečných nástrojů a lze používat experimentální části Rustu
 0. __Instalace editoru__
-	- Rust sice patří mezi jazyky, které nejsou přímo vázené na IDE
+	- Rust patří mezi jazyky, které nejsou přímo vázené na IDE
 	(=integrované vývojové prostředí), takže programy může člověk vyvíjet s čímkoliv,
 	třeba i Poznámkovým blokem. Hodí se ale nainstalovat si editor, který nám práci
 	usnadní. V rámci předmětu silně doporučuji VSCode, není ovšem problém vybrat
@@ -263,7 +263,7 @@ klonovat z Githubu (=stahovat) pomocí `git clone URL`, kde *URL* je odkaz na da
 		     println!("vysledek: {}", a + b);
 		 }
 		 ```
-		 Tentokrát bylo zavedeno několik nových věcí:  
+		 Tentokrát bylo zavedeno několik pár věcí:  
 		 - `let argumenty: Vec<_> = args().collect();` - vytvoří seznam sbírku argumentů příkazové řádky
 		 	- _Vec<\_>_ znamená Vector obsahující prvky o typu, který identifikuje sám překladač.
 		 		- Vektor je jedno rozměrná sbírka (=normální seznam)
