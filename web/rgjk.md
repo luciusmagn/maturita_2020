@@ -278,3 +278,27 @@ klonovat z Githubu (=stahovat) pomocí `git clone URL`, kde *URL* je odkaz na da
 	0. Zkuste opět zaměnit početní operace, číst více čísel nebo číselné typy
 	0. Když budete spokojeni s výsledkem, vytvořte revizi pomocí `git add .` a `git commit -m "váš popis změn"`
 	   a nahrajte změny na github s `git push`
+
+<h2 id="if">If - větvení kódu</h2>
+
+0. __Ukázka standardní knihovny v Rustu__ - nepovinný bonus na začátek?
+	1. Standardní knihovna je soubor funkcí, datových typů, konstant zorganizovaných do
+		 několika modulů, které poskytují jazyku základní funkcionalitu a schopnost komunikace se
+		 systémem
+	0. Knihovny se v Rustu (a mnoha jiných jazycích) musí manuálně importovat, ale část standardní je
+		 importovaná automaticky (viz <https://doc.rust-lang.org/std/prelude/>)
+	0. Obsah standardní knihovny se najde v [dokumentaci](https://doc.rust-lang.org/std/)
+	0. Na otestování standardní knihovny si můžete vytvořit nový projekt pomocí `cargo new stdlib --bin`
+		 a postupem analogickým s předchozím kódem (navigace, otevírání v editoru, kompilace atd.)
+		 nebo bude stačit i otestovat kód na Playgroundu - <https://play.rust-lang.org/>
+	0. Každopádně vložte například následující kód:  
+		 ```rust
+		 use std::i32::MAX; // maximální hodnota 32-bitového čísla
+		 fn main() {
+		     println!("maximální hodnota i32 je {}", MAX);
+		 }
+		 ```
+	0. Jako obvykle, kód se spustí pomocí `cargo run` nebo palety příkazů v editorů (__Ctrl+Shift+P__, Cargo: Run)
+	0. V příkazovém řádku (resp. výstupu v editoru) by se měla objevit maximální hodnota __i32__
+0. __Kalkulačka v4.0__ - používání cizí knihovny `text_io`
+	1. 

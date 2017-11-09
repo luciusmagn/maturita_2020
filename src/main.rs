@@ -53,6 +53,7 @@ fn main()
 		app.get("/sucks", "sucks", md!("sucks"));
 
 	app.get("/rgjk",    "rgjk",    raw_md!("rgjk"));
+	app.get("/awrs",    "awrs",    raw_md!("awesome_rust"));
 
 	app.get("/pebbles", "pebbles", pebbles);
 	app.get("/rust",    "rust",    rust);

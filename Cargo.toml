@@ -2,6 +2,7 @@
 name = "magnusi-tech-server"
 version = "0.5.3"
 authors = ["Lukáš Hozda <luk.hozda@gmail.com>"]
+build = "build.rs"
 
 [dependencies]
 light_pencil = "0.4.3"
