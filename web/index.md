@@ -23,5 +23,5 @@ Feel free to check the sidebar.
 ## Contribution
 Contributing to this page is permitted, just clone
 the repo, make your changes and create a pull-request.
-Tada. However, If you want to add why Java
+Tada. If you want to add why Java
 sucks, I am 100% merging.
