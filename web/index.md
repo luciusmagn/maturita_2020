@@ -7,7 +7,7 @@ development, but it is not among my main fields of interest.
 The purpose of this website is to hold basic information
 about me, some of my notable projects, my rants, some of my knowledge
 and to work as a webserver paired with __Pebble__, a package manager for
-the C2 language; gjkbot & rustgrade, a bot and server for students' projects grading.
+the C2 language; __gjkbot__ & __rustgrade__, a bot and server for students' projects grading.
 
 Feel free to check the sidebar.
 
