@@ -201,8 +201,8 @@ term would be __computer__ languages, but you can be never sure, can you?
 Well, the first one on the list is __HTML__. I believe that despite all the oddities
 about it, it is something every new wannabe developer should know. With __HTML5__,
 there has been a lot of changes and new things introduced to the language,
-but I believe that those are not critical in my opinion. That is, unless you
-want to study web development. Then even those are a must, sorry!  
+but I believe that those are not that critical. That is, unless you
+want to study web development.
 
 __CSS__ is a critter which is often neglected by developers. People tend tend to think
 of it as an accessory to __HTML__ and __Javascript__, but __CSS__ is a dangerous tool of it's own.
@@ -210,7 +210,7 @@ And unlike __HTML__ & __JS__, shitty code in __CSS__ is very visible. It can't b
 enough that it is detrimental for future developers to master it.  
 
 __Jade__ aka __Pug__ (due to some licensing issues with the name) is a templating language
-for Node. It is nice if you want to rid yourself of __HTML__ tags everywhere (read as
+for Node. It is nice if you want to rid yourself of __HTML__ tags everywhere (read as:
 trade them for indentation). I don't like their new logo, though. __2/10__.  
 
 Well, I, a __sworn Java-hater__ have also touched __Java__ in the past. For starters,
@@ -232,7 +232,7 @@ much simpler to implement than __YAML__, much better specification than __INI__.
 
 I know that __Unreal Engine 4__ is a language, but an engine, yeah. I still felt like
 I should include it here, because it is the only means of game development that
-stuck with me for more than a months and continues to do so. Graphics are great,
+stuck with me for more than a month and continues to do so. Graphics are great,
 Blueprints are fairly simple (although sometimes lacking in speed) and physics work
 nice.  
 

@@ -9,7 +9,7 @@ about me, some of my notable projects, my rants, some of my knowledge
 and to work as a webserver paired with __Pebble__, a package manager for
 the C2 language; gjkbot & rustgrade, a bot and server for students' projects grading.
 
-Check the sidebar to see what crap I keep here.
+Feel free to check the sidebar.
 
 ## Contacts
 * Email: luk.hozda@gmail.com
@@ -20,13 +20,8 @@ Check the sidebar to see what crap I keep here.
 * Discord: luciusmagn
 * Display name in vast majority of places: magnusi
 
-*Man, I am creative with names, am I not?*
-
 ## Contribution
 Contributing to this page is permitted, just clone
 the repo, make your changes and create a pull-request.
-Tada. However, I am the person who knows most about
-me, so I don't know what might one want to add about
-me here. If you want to add a juicy rant or why Java
-sucks, I am 100% merging. Let the hate flow through.
-__[insert Palpatine picture]__
+Tada. However, If you want to add why Java
+sucks, I am 100% merging.
