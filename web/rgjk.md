@@ -301,4 +301,98 @@ klonovat z Githubu (=stahovat) pomocí `git clone URL`, kde *URL* je odkaz na da
 	0. Jako obvykle, kód se spustí pomocí `cargo run` nebo palety příkazů v editorů (__Ctrl+Shift+P__, Cargo: Run)
 	0. V příkazovém řádku (resp. výstupu v editoru) by se měla objevit maximální hodnota __i32__
 0. __Kalkulačka v4.0__ - používání cizí knihovny `text_io`
-	1. 
+	1. Složka projektu obsahuje soubor Cargo.toml, který končí textem `[dependencies]`
+	0. Na další řádek se přidá následující text:
+		 ```toml
+		 text_io = "*"
+		 ```
+	0. To způsobí, že při další kompilaci Cargo automaticky knihovnu stáhne a učiní použitelnou v programu
+	0. V main.rs je nejprve nutné knihovnu importovat:
+		 ```rust
+		 extern crate text_io;
+		 ```
+	0. To učiní knihovnu viditelnou v programu. `text_io` je ovšem knihovna, která exportuje i makra, takže
+		 v tomto případě je nutné řádek ještě trochu změnit:
+		 ```rust
+		 #[macro_use] extern crate text_io;
+		 ```
+	0. `#[macro_use]` je atribut. Ty mohou být aplikovány na importace, struktury, funkce a bloky kódu. Do hloubky budou
+		 probrány až u struktur.
+	0. Nyní můžeme kalkulačku změnit tak, aby se na parametry ptala uživatele:
+		 ```rust
+		 #[macro_use] extern crate text_io;
+		 fn main() {
+		     println!("zadejte první číslo: ");
+		     let a: i32 = read!();
+		     println!("zadejte druhé číslo: ");
+		     let b: i32 = read!();
+		     println!("vysledek: {}", a + b);
+		 }
+		 ```
+0. __If__ - podmínky
+	1. Podmínky slouží k tzv. větvění kódu. Někdy je potřeba dělat něco jiného, když se lyší vstup nebo prostředí programu
+	0. Základní konstrukcí pro větvení ve většině modernějších (cca 30 let a mladší) programovacích jazyků je __if__
+	0. Syntaxe ifu vypadá takto:
+		 ```rust
+		 if podmínka {
+		 	// kód
+		 }
+		 else if další_podmínka {
+		 	// kód, když neplatí podmínka, ale další_podmínka platí
+		 }
+		 else {
+		 	// kód, když nic neplatí a existence je lež
+		 }
+		 ```
+	4. Jedině část if-podmínka-blok je povinná a else-if se může opakovat. Narozdíl od mnoha jiných programovacích jazyků
+		 se závorky kolem podmínek nepíšou (budou brány jako součást výrazu, což neovlivní výsledek), ale složené závorky jsou povinné.
+		 Důvod pro to je jednoduchý. V Rustu je spousta věcí výraz, mimo jiné i bloky kódu, pokud poslední příkaz/výraz v něm nekončí středníkem.
+		 Je tedy možné zplodit i takovéto neporučované zvěrstvo:
+		 ```rust
+		 if {
+			 let a = get_number();
+			 a * 2
+		 } == {
+			 let b = get_another_number();
+			 b
+		 } {
+			 println!("dvojnásobek a je roven b");
+		 }
+		 ```
+	5. Kód by byl velmi zavádějící kdyby tady `println!()` nemusel být v bloku. Bez bloků v if-ech se může programátor většinou obejít. Třeba minulý přiklad
+		 by se dal jenodušeji přepsat bez použití bloků:
+		 ```rust
+		 if (get_number() * 2) == (get_another_number()) {
+		 	println!("dvojnásobek prvního čísla je roven druhému")
+		 }
+		 ```
+	6. Pro podmínky se používají tzv. relační operátory - `==, !=, <, >, >=, <=` - viz prezentace. Jejich výsledky jsou vždy booleovské hodnoty, tj. pravda - `true`
+		 nebo nepravda - `false`. Proto se `==` a `!=` nikdy nepužívají k porovnávání booleovských hodnot v podmínkách. `promenna == true` je tedy zbytečné a častá
+		 začátečnická chyba.
+	0. Všechny booleovské výrazy se dají znegovat pomocí vykřičníku -> `!true`, `!(a != b)`
+0. __Kalkulačka v5.0__ - možné řešení
+```rust
+#[macro_use] extern crate text_io;
+
+fn main() {
+	let c1: f64 = read!();
+	let c2: f64 = read!();
+	let op: String = read!();
+
+	if op == "+" {
+		println!("{}", c1 + c2);
+	}
+	else if op == "-" {
+		println!("{}", c1 - c2);
+	}
+	else if op == "*" {
+		println!("{}", c1 * c2);
+	}
+	else if op == "/" {
+		println!("{}", c1 / c2);
+	}
+	else {
+		println!("neznámá operace");
+	}
+}
+```
