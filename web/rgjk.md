@@ -396,3 +396,32 @@ fn main() {
 	}
 }
 ```
+
+<h2 id="loop">Loop a match - pokročilé větvení kódu</h2>
+
+0. Ukázky smyček
+	1. K otestování smyček je možné buď vytvořit nový projekt pomocí `cargo new looptymcloopface --bin` nebo použitím stránky
+		 jako je [Rust Playground](https://play.rust-lang.org)
+	0. Loop smyčka
+	```rust
+	fn main() {
+		let mut i = 0;
+		loop {
+			println!(“{}”, i);
+			i += 1;
+			if i > 10 {
+			break;
+			}
+		}
+	}
+	```
+	3. While smyčka
+	```rust
+	fn main() {
+	    let mut i = 0;
+			while i <= 10 {
+	        println!(“{}”, i);
+	        i += 1;
+	    }    
+	}
+	```
