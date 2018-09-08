@@ -11,15 +11,6 @@ the C2 language; __gjkbot__ & __rustgrade__, a bot and server for students' proj
 
 Feel free to check the sidebar.
 
-## Contacts
-* Email: luk.hozda@gmail.com
-* Skype: luciusmagn
-* Github: luciusmagn
-* IRC (#rust-beginners at irc.mozilla.org): magnusi
-* Steam: luciusmagn
-* Discord: luciusmagn
-* Display name in vast majority of places: magnusi
-
 ## Contribution
 Contributing to this page is permitted, just clone
 the repo, make your changes and create a pull-request.

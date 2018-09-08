@@ -44,6 +44,7 @@ fn main()
 	app.get("/",         "index",    md!("index"));
 	app.get("/style",    "style",    md!("style"));
 	app.get("/proj",     "proj",     md!("proj"));
+	app.get("/contacts", "proj",     md!("contacts"));
 	app.get("/articles", "articles", md!("articles"));
 		app.get("/my_langs",   "my_langs",   md!("my_langs"));
 		app.get("/langs_give", "langs_give", md!("langs_give"));
