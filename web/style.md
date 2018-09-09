@@ -7,7 +7,7 @@ direct copy-pasta of the suckless style. Credits to their respective
 authors.
 
 The style is mainly intended for the C language, but some of the rules
-should be appliable to other programming languages. I may add extensions later
+should be applicable to other programming languages. I may add extensions later
 on for other languages which differ from C more.
 
 ## Note
@@ -159,7 +159,7 @@ enum {
 - Avoid memory leaks and depending on undefined behavior
 - Always declare pointers which are not going to change as __const__
 - Don't overuse malloc(), sometimes using stack will work just as fine
-- If appliable, use sized integer types from __stdint.h__
+- If applicable, use sized integer types from __stdint.h__
 - If you have to use the __bool__ type (for example because a library requires it),
   don't compare against __true__ and __false__ directly
 - DRY
