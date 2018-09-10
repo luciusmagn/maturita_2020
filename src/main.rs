@@ -51,23 +51,6 @@ fn main()
 	let mut app  =  Pencil::new("web");
 
 	app.get("/",         "index",    md!("index"));
-	/*app.get("/style",    "style",    md!("style"));
-	app.get("/proj",     "proj",     md!("proj"));
-	app.get("/proj",     "proj",     md!("proj"));
-	app.get("/contacts", "contacts", md!("contacts"));
-	app.get("/articles", "articles", md!("articles"));
-		app.get("/my_langs",   "my_langs",   md!("my_langs"));
-		app.get("/langs_give", "langs_give", md!("langs_give"));
-
-	app.get("/rocks_suck", "rocks_suck", md!("rocks_suck"));
-		app.get("/rocks", "rocks", md!("rocks"));
-		app.get("/sucks", "sucks", md!("sucks"));
-
-	app.get("/rgjk",    "rgjk",    raw_md!("rgjk"));
-	app.get("/awrs",    "awrs",    raw_md!("awesome_rust"));
-
-	app.get("/pebbles", "pebbles", pebbles);
-	app.get("/rust",    "rust",    rust);*/
 
 	app.before_request(
 		|request|
