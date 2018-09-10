@@ -20,8 +20,8 @@ hurt to keep all your projects style-consistent with each other as well.
 - Comment with license and possibly a short description of the tool/file/library.
   - If you don't expect your project's files to be taken out often and
     have a global LICENSE file, this can be omitted
-- Headers 
-- Macros 
+- Headers
+- Macros
 - Types
 - Function declarations
   - Can be left out in short files
@@ -36,7 +36,7 @@ hurt to keep all your projects style-consistent with each other as well.
 
 ## C Features
 - C99 without extensions
-  - When compiling with gcc define __-std=c99 -pedantic__
+  - When compiling with gcc use __-std=c99 -pedantic__
 - POSIX.1-2008
   - Define either __\_POSIX\_C\_SOURCE 200809L__ or __\_XOPEN\_SOURCE 700__
 - Do not mix declarations and code
