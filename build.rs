@@ -4,7 +4,7 @@ fn main()
 {
 	assert!(Command::new("curl")
 		.arg("-o")
-		.arg("web/awesome_rust.md")
+		.arg("web/awesome_rust.rmd")
 		.arg("https://raw.githubusercontent.com/rust-unofficial/awesome-rust/master/README.md")
 		.output()
 		.expect("couldn't launch curl. Do you have it installed?")
