@@ -6,15 +6,17 @@ use light_pencil::{Response, PencilResult, Request};
 
 use RUST;
 use PEBBLES;
+use RAW_TEMPLATE;
 use PAGE_CACHE_MUT;
 use types::{Index, RIndex};
 
 pub fn markdown_page(name: &str, template: &str) -> PencilResult
 {
 	let mut page_cache = PAGE_CACHE_MUT.lock().unwrap();
-	let body = if page_cache.contains_key(&format!("web/{}.md", name))
+	let ext = if template == RAW_TEMPLATE { "rmd" } else { "md" };
+	let body = if page_cache.contains_key(&format!("web/{}.{}", name, ext))
 	{
-		let p = format!("web/{}.md", name);
+		let p = format!("web/{}.{}", name, ext);
 		let metadata = match metadata(&p) { Ok(m) => m, _ => { return Ok(Response::from("404")); } };
 		let date = match metadata.modified() { Ok(d) => d, _ => { return Ok(Response::from("404")); } };
 
@@ -44,7 +46,7 @@ pub fn markdown_page(name: &str, template: &str) -> PencilResult
 	}
 	else
 	{
-		let p = format!("web/{}.md", name);
+		let p = format!("web/{}.{}", name, ext);
 		let metadata = match metadata(&p)  { Ok(m) => m, _ => { return Ok(Response::from("404")); } };
 		let date = match metadata.modified() { Ok(d) => d, _ => { return Ok(Response::from("404")); } };
 
@@ -88,7 +90,7 @@ pub fn rust(_: &mut Request) -> PencilResult
 {
 	let index = if let Ok(i) =
 		RIndex::read() {i} else {return Ok(Response::from("couldn't read index"));};
-	let mut content = String::new(); 
+	let mut content = String::new();
 	for entry in index.users
 	{
 		content.push_str(&format!("
