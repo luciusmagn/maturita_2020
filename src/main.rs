@@ -48,9 +48,9 @@ lazy_static! {
 
 fn main()
 {
-	let mut app  =  Pencil::new("web");
+	let mut app = Pencil::new("web");
 
-	app.get("/",         "index",    md!("index"));
+	app.get("/", "index", md!("index"));
 
 	app.before_request(
 		|request|
