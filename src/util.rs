@@ -60,7 +60,7 @@ pub fn markdown_page(name: &str, template: &str) -> PencilResult
 		page_cache.insert(p, (s.clone(), date.clone()));
 		s
 	};
-	let contents = template.replace("[[[contents]]]", body.as_ref());
+	let contents = template.replace("<contents/>", body.as_ref());
 	Ok(Response::from(contents))
 }
 
