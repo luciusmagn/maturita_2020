@@ -239,6 +239,10 @@ ul + h2, ul + h3 {
 	margin-top: 20px;
 }
 
+article a *:hover {
+	color: #000;
+}
+
 @media print, screen and (max-width:960px) {
 	body {
 		flex-direction: column;
