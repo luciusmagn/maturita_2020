@@ -182,7 +182,9 @@ header nav {
 header nav section {
 	width: 50%;
 	flex: 1;
-	height: 70px
+	height: 70px;
+	display: flex;
+	flex-direction: column;
 }
 
 strong {
