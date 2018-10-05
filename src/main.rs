@@ -14,15 +14,14 @@ use std::path::Path;
 use std::time::SystemTime;
 use std::collections::HashMap;
 use std::sync::{Mutex, RwLock};
-use std::fs::{read_dir, DirEntry};
+use std::fs::read_dir;
 
 use ansi_term::Colour::{Green, Blue};
 use light_pencil::{Pencil, Request, PencilResult};
 
-mod types;
 mod util;
 
-use util::{markdown_page, rust, pebbles};
+use util::markdown_page;
 
 // site w/ sidebar
 macro_rules! md
@@ -38,8 +37,6 @@ macro_rules! raw_md
 
 static RAW_TEMPLATE:&'static str = include_str!("../raw_template.html");
 static TEMPLATE:&'static str = include_str!("../template.html");
-static PEBBLES:&'static str = include_str!("../pebbles.html");
-static RUST:&'static str = include_str!("../rust.html");
 
 lazy_static! {
 	static ref PAGE_CACHE_MUT: Mutex<HashMap<String, (String, SystemTime)>> = Mutex::new(HashMap::new());

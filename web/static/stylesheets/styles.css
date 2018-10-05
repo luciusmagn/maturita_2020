@@ -243,6 +243,12 @@ article a *:hover {
 	color: #000;
 }
 
+a:active, a:focus {
+	outline: 0;
+	border: none;
+	-moz-outline-style: none;
+}
+
 @media print, screen and (max-width:960px) {
 	body {
 		flex-direction: column;
