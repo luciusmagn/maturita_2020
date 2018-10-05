@@ -1,8 +1,8 @@
 use std::io::Read;
 use std::fs::{File, metadata};
 
+use light_pencil::{Response, PencilResult};
 use comrak::{ComrakOptions, markdown_to_html};
-use light_pencil::{Response, PencilResult, Request};
 
 use RAW_TEMPLATE;
 use PAGE_CACHE_MUT;

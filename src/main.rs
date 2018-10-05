@@ -1,23 +1,19 @@
 #![feature(label_break_value)]
 
-extern crate toml;
 extern crate comrak;
 extern crate ansi_term;
 extern crate light_pencil;
 
-#[macro_use] extern crate serde_derive;
 #[macro_use] extern crate lazy_static;
 
 use std::io;
-use std::mem;
-use std::path::Path;
 use std::time::SystemTime;
 use std::collections::HashMap;
 use std::sync::{Mutex, RwLock};
 use std::fs::read_dir;
 
 use ansi_term::Colour::{Green, Blue};
-use light_pencil::{Pencil, Request, PencilResult};
+use light_pencil::{Pencil, Request};
 
 mod util;
 
