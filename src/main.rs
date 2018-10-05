@@ -1,4 +1,5 @@
 #![feature(label_break_value)]
+#![feature(dbg_macro)]
 
 extern crate comrak;
 extern crate ansi_term;
@@ -17,7 +18,7 @@ use light_pencil::{Pencil, Request};
 
 mod util;
 
-use util::markdown_page;
+use util::{markdown_page, stylus};
 
 // site w/ sidebar
 macro_rules! md
@@ -31,11 +32,18 @@ macro_rules! raw_md
 	($lit:expr) => { Box::new(move |_: &mut Request| { markdown_page($lit, RAW_TEMPLATE) }) };
 }
 
+// stylus stylesheet
+macro_rules! styl
+{
+	($lit:expr) => { Box::new(move |_: &mut Request| { stylus($lit) }) };
+}
+
 static RAW_TEMPLATE:&'static str = include_str!("../raw_template.html");
 static TEMPLATE:&'static str = include_str!("../template.html");
 
 lazy_static! {
-	static ref PAGE_CACHE_MUT: Mutex<HashMap<String, (String, SystemTime)>> = Mutex::new(HashMap::new());
+	static ref STYLUS_CACHE: Mutex<HashMap<String, (String, SystemTime)>> = Mutex::new(HashMap::new());
+	static ref PAGE_CACHE: Mutex<HashMap<String, (String, SystemTime)>> = Mutex::new(HashMap::new());
 	static ref NAME_CACHE: RwLock<Vec<String>> = RwLock::new(vec![]);
 }
 
@@ -86,11 +94,11 @@ fn main()
 					let name_clone = name.clone();
 
 					match ext.as_ref() {
-						"md"  => request.app.get("/".to_string() + &name, &name, md!(&name_clone)),
-						"rmd" => request.app.get("/".to_string() + &name, &name, raw_md!(&name_clone)),
+						"md"   => request.app.get("/".to_string() + &name, &name, md!(&name_clone)),
+						"rmd"  => request.app.get("/".to_string() + &name, &name, raw_md!(&name_clone)),
+						"styl" => request.app.get("/".to_string() + &name + ".css", &(name.clone() + ".styl"), styl!(&name_clone)),
 						_ => (),
 					}
-
 					list.push(name);
 				}
 			}
