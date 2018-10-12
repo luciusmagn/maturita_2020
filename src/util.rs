@@ -64,7 +64,6 @@ pub fn markdown_page(name: &str, template: &str) -> PencilResult
 }
 
 pub fn stylus(name: &str) -> PencilResult {
-	println!("test");
 	let mut stylus_cache = STYLUS_CACHE.lock().unwrap();
 	let p = format!("web/{}.styl", name);
 	let body = if stylus_cache.contains_key(&format!("web/{}.styl", name))
@@ -88,10 +87,10 @@ pub fn stylus(name: &str) -> PencilResult {
 			{
 				Ok(_) =>
 				{
-					entry.0 = dbg!(std::str::from_utf8(&Command::new("stylus")
+					entry.0 = std::str::from_utf8(&Command::new("stylus")
 							.arg(p).arg("-p").output()
 							.expect("can't start stylus, is it installed?").stdout)
-						.expect("couldn't convert stylus to CSS").to_string());
+						.expect("couldn't convert stylus to CSS").to_string();
 					entry.1 = date;
 					entry.0.clone()
 				},
@@ -110,10 +109,10 @@ pub fn stylus(name: &str) -> PencilResult {
 		if f.read_to_string(&mut tmp_str).is_err()
 			{return Ok(Response::from("404"));}
 
-		let s = dbg!(std::str::from_utf8(&Command::new("stylus")
+		let s = std::str::from_utf8(&Command::new("stylus")
 				.arg(&p).arg("-p").output()
 				.expect("can't start stylus, is it installed?").stdout)
-			.expect("couldn't convert stylus to CSS").to_string());
+			.expect("couldn't convert stylus to CSS").to_string();
 		stylus_cache.insert(p, (s.clone(), date.clone()));
 		s
 	};
