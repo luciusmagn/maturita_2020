@@ -1,17 +1,29 @@
-## About Me
-Howdy, my name is Lukáš Hozda and I hail from Czech Republic.
-I like programming, software development, compilers 
-and programming languages in general. I can also do some web
-development, but it is not among my main fields of interest.
+## Outer Heaven
+In the Metal Gear franchise, Outer Heaven was an organization formed
+to prevent soldiers being manipulated by their nations and is a military-centric
+society completely devoid of prejudices based on race, gender, sexuality or religion.
 
+Now, I am no military man, but the idea of a place which, instead of bickering and
+bigotry, just does not care and talks about topics objectively is something close
+to my heart.
+
+### Content
 The purpose of this website is to hold basic information
-about me, some of my notable projects, my rants, some of my knowledge
-and to work as a webserver paired with __Pebble__, a package manager for
-the C2 language; __gjkbot__ & __rustgrade__, a bot and server for students' projects grading.
+about me, some of my notable projects, pieces of my crappy mytology and articles about.
 
-Feel free to check the sidebar.
+The content falls under the following categories:
 
-### Latest content
+- Programming (mainly Rust)
+- Social topics
+- My mythology
+- Stuff for my programming classes -> [RGJK](/rgjk)
+<br>
+
+Legacy versions of this website also served to view information
+about the now-dormant C2 package manager, __Pebble__, and the two
+experimental education oriented programs, __gjkbot__ and __rustgrade__.
+
+### Latest entriesq
 <nav style="padding: 0px 10px; border-left: solid 1px #e5e5e5; border-right: solid 1px #e5e5e5">
 	<article>
 		<a href="/functor">
