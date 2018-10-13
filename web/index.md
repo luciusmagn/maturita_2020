@@ -23,7 +23,7 @@ Legacy versions of this website also served to view information
 about the now-dormant C2 package manager, __Pebble__, and the two
 experimental education oriented programs, __gjkbot__ and __rustgrade__.
 
-### Latest entriesq
+### Latest entries
 <nav style="padding: 0px 10px; border-left: solid 1px #e5e5e5; border-right: solid 1px #e5e5e5">
 	<article>
 		<a href="/functor">
