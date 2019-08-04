@@ -42,7 +42,7 @@ pub struct Request<'r, 'a, 'b: 'a> {
     pub routing_error: Option<HTTPError>,
     pub extensions_data: TypeMap,
     pub host: Host,
-    body: RefCell<HttpReader<&'a mut BufReader<&'b mut NetworkStream>>>,
+    body: RefCell<HttpReader<&'a mut BufReader<&'b mut dyn NetworkStream>>>,
     args: LazyCell<MultiDict<String>>,
     form: LazyCell<MultiDict<String>>,
     files: LazyCell<MultiDict<FilePart>>,
@@ -207,11 +207,11 @@ impl<'r, 'a, 'b: 'a> Request<'r, 'a, 'b> {
     }
 
     pub fn url(&self) -> String {
-        self.host_url() + self.full_path().trim_left_matches('/')
+        self.host_url() + self.full_path().trim_start_matches('/')
     }
 
     pub fn base_url(&self) -> String {
-        self.host_url() + self.path().trim_left_matches('/')
+        self.host_url() + self.path().trim_start_matches('/')
     }
 }
 
@@ -227,7 +227,7 @@ impl<'r, 'a, 'b: 'a> Read for Request<'r, 'a, 'b> {
     }
 }
 
-pub struct ResponseBody<'a>(Box<Write + 'a>);
+pub struct ResponseBody<'a>(Box<dyn Write + 'a>);
 
 impl<'a> ResponseBody<'a> {
     pub fn new<W: Write + 'a>(writer: W) -> ResponseBody<'a> {
@@ -288,7 +288,7 @@ impl BodyWrite for Take<File> {
 pub struct Response {
     pub status_code: u16,
     pub headers: Headers,
-    pub body: Option<Box<BodyWrite>>,
+    pub body: Option<Box<dyn BodyWrite>>,
 }
 
 impl Response {

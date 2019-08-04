@@ -1,5 +1,4 @@
 #![feature(label_break_value)]
-#![feature(dbg_macro)]
 
 extern crate comrak;
 extern crate ansi_term;

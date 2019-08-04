@@ -72,9 +72,9 @@ impl error::Error for PencilError {
         }
     }
 
-    fn cause(&self) -> Option<&error::Error> {
+    fn cause(&self) -> Option<&dyn error::Error> {
         match *self {
-            PenHTTPError(ref err) => Some(&*err as &error::Error),
+            PenHTTPError(ref err) => Some(&*err as &dyn error::Error),
             PenUserError(_) => None,
         }
     }
@@ -83,12 +83,12 @@ impl error::Error for PencilError {
 pub type PencilResult = Result<Response, PencilError>;
 
 pub type ViewArgs = HashMap<String, String>;
-pub type ViewFunc = Box<Fn(&mut Request) -> PencilResult + Send + Sync>;
+pub type ViewFunc = Box<dyn Fn(&mut Request) -> PencilResult + Send + Sync>;
 
-pub type HTTPErrorHandler = Fn(HTTPError) -> PencilResult + Send + Sync;
-pub type UserErrorHandler = Fn(UserError) -> PencilResult + Send + Sync;
+pub type HTTPErrorHandler = dyn Fn(HTTPError) -> PencilResult + Send + Sync;
+pub type UserErrorHandler = dyn Fn(UserError) -> PencilResult + Send + Sync;
 
-pub type BeforeRequestFunc = Fn(&mut Request) -> Option<PencilResult> + Send + Sync;
-pub type AfterRequestFunc = Fn(&Request, &mut Response) + Send + Sync;
+pub type BeforeRequestFunc = dyn Fn(&mut Request) -> Option<PencilResult> + Send + Sync;
+pub type AfterRequestFunc = dyn Fn(&Request, &mut Response) + Send + Sync;
 
-pub type TeardownRequestFunc = Fn(Option<&PencilError>) + Send + Sync;
+pub type TeardownRequestFunc = dyn Fn(Option<&PencilError>) + Send + Sync;
