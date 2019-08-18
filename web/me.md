@@ -1,5 +1,11 @@
 ## Me
-Howdy, my name is Lukáš Hozda and I hail from Czech Republic.
-I like programming, software development, compilers 
-and programming languages in general. I can also do some web
-development, but it is not among my main fields of interest.
+Howdy.
+
+### Contacts
+* Email: me@magnusi.tech
+* Skype: luciusmagn
+* Github: luciusmagn
+* IRC (#rust-beginners at irc.mozilla.org): magnusi
+* Steam: luciusmagn
+* Discord: luciusmagn#7132
+* Display name in vast majority of places: magnusi
