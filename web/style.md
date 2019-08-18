@@ -1,6 +1,6 @@
 # Allsucks coding style
-Allsucks is a style which emphasizes consistency and consciseness.
-It is based on the suckless coding style, it agress with many of its points,
+Allsucks is a style which emphasizes consistency and conciseness.
+It is based on the suckless coding style, it agrees with many of its points,
 extends some and contradicts a few. The name is a combination of Allman
 indentation style and the suckless coding style. Certain points are a
 direct copy-pasta of the suckless style. Credits to their respective
@@ -55,7 +55,7 @@ hurt to keep all your projects style-consistent with each other as well.
 */
 ```
 
-- Multiline comments should have each non-delimiting line starting with __' \*'__
+- Multi-line comments should have each non-delimiting line starting with __' \*'__
 - __*/__ on its own line
 - Do not mix comments into code, always use line above or end of the line for
   very short comments
@@ -68,14 +68,14 @@ hurt to keep all your projects style-consistent with each other as well.
   - Inner statement needs a block
   - Another branch of the same statement needs a block
 
-## Leading whitespace
-- Use tabs for indentation (recommended tabsize is 4 for viewing)
+## Leading white-space
+- Use tabs for indentation (recommended tab size is 4 for viewing)
 - Use spaces for alignment
   - No tabs except beginning of the line
-  - Everything aligns regardless of tabsize
-- Use spaces for multiline-macros everywhere, indentation level 0 is where the define began
+  - Everything aligns regardless of tab size
+- Use spaces for multi-line-macros everywhere, indentation level 0 is where the define began
 
-## Trailing whitespace
+## Trailing white-space
 - Delete it
 
 ## Functions

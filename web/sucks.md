@@ -6,14 +6,15 @@ articles about why I think thing X sucks.
 # Programming Languages
 * Java
 * Go (only like 50% succ)
+* PHP sucks massive piles of mouldy dicks
 * COBOL
 
 # Operating Systems
 * iOS
 * All crappy J2ME OSes for phones
-* mac os (50% succ)
-* Windows (50% succ)
+* mac OS (75% succ)
+* Windows
 
 # Software
 * Eclipse
-* GNU crap
+* Bloatware in general
