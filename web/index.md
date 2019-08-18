@@ -1,15 +1,9 @@
 ## Outer Heaven
-In the Metal Gear franchise, Outer Heaven was an organization formed
-to prevent soldiers being manipulated by their nations and is a military-centric
-society completely devoid of prejudices based on race, gender, sexuality or religion.
-
-Now, I am no military man, but the idea of a place which, instead of bickering and
-bigotry, just does not care and talks about topics objectively is something close
-to my heart.
+Welcome to my humble abode. Please do stay a while. Thank you.
 
 ### Content
 The purpose of this website is to hold basic information
-about me, some of my notable projects, pieces of my crappy mytology and articles about.
+about me, some of my notable projects, pieces of my crappy mythology and articles about.
 
 The content falls under the following categories:
 
