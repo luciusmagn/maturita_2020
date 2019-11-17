@@ -13,7 +13,7 @@ use std::sync::{Mutex, RwLock};
 use std::fs::read_dir;
 
 use ansi_term::Colour::{Green, Blue};
-use light_pencil::{Pencil, Request};
+use light_pencil::{Pencil, Request, Response};
 
 mod util;
 
@@ -39,6 +39,8 @@ macro_rules! styl
 
 static RAW_TEMPLATE:&'static str = include_str!("../raw_template.html");
 static TEMPLATE:&'static str = include_str!("../template.html");
+static DESPAIR:&'static str = include_str!("../despair.html");
+static POEM:&'static str = include_str!("../poem.html");
 
 lazy_static! {
 	static ref STYLUS_CACHE: Mutex<HashMap<String, (String, SystemTime)>> = Mutex::new(HashMap::new());
@@ -51,6 +53,8 @@ fn main()
 	let mut app = Pencil::new("web");
 
 	app.get("/", "index", md!("index"));
+	app.get("/despair", "despair", Box::new(move |_: &mut Request| Ok(Response::from(DESPAIR))));
+	app.get("/poem", "despair", Box::new(move |_: &mut Request| Ok(Response::from(POEM))));
 
 	app.before_request(
 		|request|
