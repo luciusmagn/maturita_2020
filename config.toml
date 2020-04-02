@@ -1,0 +1,10 @@
+site_url = ""
+site_name = "Outer Heaven"
+site_motto = ""
+footer_note = ""
+media_dir = "media"
+build_dir = "public"
+theme = "simple"
+theme_root_dir = "themes"
+rebuild_interval = 2
+posts_per_page = 999
