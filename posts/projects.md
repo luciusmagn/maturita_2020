@@ -1,5 +1,6 @@
 tags = ["magnusi"]
 title = "Projects"
+hidden = true
 
 
 These are some projects of mine. Of course,

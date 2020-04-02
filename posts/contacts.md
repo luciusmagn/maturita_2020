@@ -1,5 +1,6 @@
 tags = ["magnusi"]
 title = "Contacts"
+hidden = true
 
 
 Howdy.

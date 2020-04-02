@@ -1,5 +1,6 @@
 tags = ["magnusi"]
 title = "Things that rock and things that suck"
+hidden = true
 
 
 ## Rocks

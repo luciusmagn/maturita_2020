@@ -1,5 +1,6 @@
 tags =  ["magnusi"]
 title = "Recommended style guidelines"
+hidden = true
 
 ## Allsucks coding style
 Allsucks is a style which emphasizes consistency and conciseness.
