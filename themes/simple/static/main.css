@@ -5,7 +5,6 @@
   background-color: inherit;
   color: inherit;
   margin: 0;
-  padding: 0;
 }
 body {
   font-family: system-ui, sans-serif;
@@ -17,6 +16,7 @@ body {
 }
 nav ul {
   border-right: 1px solid #edf2f7;
+  padding: 0;
 }
 a {
   color: #000;
