@@ -1,7 +1,12 @@
 tags = ["magnusi"]
-title = "About Outer Heaven"
+title = "  "
 hidden = true
 
+<p>
+<img src="/media/skull2.png" alt="outer heaven" style="height: 20em"><br>
+<i><b>K: </b>They've only got two options, Heaven or Hell.</i><br>
+<i><b>V: </b>No, there's another.</i><br>
+<p>
 The purpose of this website is to hold basic information
 about me, some of my notable projects, pieces of my crappy mythology and articles about.
 
