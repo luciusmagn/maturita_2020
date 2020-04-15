@@ -26,7 +26,7 @@ title = "Vejvalková Jana"
 ### Volný výběr
 1. __Pěna dní__ - Boris Vian, _Svatopluk Horečka_
 0. __Zámek__ - Franz Kafka, _Vladimír Kafka_
-0. __Hamlet__ -  William Shakespeare, _Josef Václav Sládek_
+0. __Hamlet__ - William Shakespeare, _Josef Václav Sládek_
 0. __Magorovy labutí písně__ - Ivan Martin Jirous
 0. __Edison__ - Vítězslav Nezval
 0. __1984__ - George Orwell, _Eva Šimečková_

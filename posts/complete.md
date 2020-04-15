@@ -28,7 +28,7 @@ hidden = true
 0. __Evžen Oněgin__ - Alexandr Sergejevič Puškin, _Olga Mašková_
 0. __Frankenstein__ - M. W. Shelley, _Tomáš Korbař_
 0. __Golem__ - Gustav Meyrink, _Eva Pátková_
-0. __Hamlet__ -  William Shakespeare, _Josef Václav Sládek_
+0. __Hamlet__ - William Shakespeare, _Josef Václav Sládek_
 0. __Hamlet__ - William Shakespeare, _Martin Hilský_
 0. __Hastrman__ - Miloš Urban
 0. __Hlava XXII__ - Joseph Haller, _Miroslav Jindra_
@@ -225,6 +225,7 @@ hidden = true
 |      7 | Maus - Art Spiegelman                                 |
 |      6 | Medeia - Euripidés                                    |
 |      6 | Konec civilizace - Aldous Huxley                      |
+|      6 | Hamlet - William Shakespeare                          |
 |      5 | Zlatý osel - Apuleius                                 |
 |      5 | Srdce temnoty - Joseph Conrad                         |
 |      5 | Pýcha a předsudek - Jane Austenová                    |
@@ -233,7 +234,6 @@ hidden = true
 |      5 | Mistr a Markétka - Michail Bulgakov                   |
 |      5 | Lolita - Vladímír Nabokov                             |
 |      5 | Hordubal - Karel Čapek                                |
-|      5 | Hamlet - William Shakespeare                          |
 |      4 | Zbabělci - Josef Škvorecký                            |
 |      4 | Tři legendy o krucifixu - Julius Zeyer                |
 |      4 | Rozum a cit - Jane Austenová                          |
@@ -324,7 +324,6 @@ hidden = true
 |      1 | Chazarský slovník - Milorad Pavic                     |
 |      1 | Hluboký spánek - Raymond Chandler                     |
 |      1 | Hlava XXII - Joseph Haller                            |
-|      1 | Hamlet -  William Shakespeare                         |
 |      1 | Golem - Gustav Meyrink                                |
 |      1 | Dracula - Bram Stoker                                 |
 |      1 | Don Quijote - Miguel de Cervantes                     |
@@ -626,7 +625,7 @@ hidden = true
 0. __Dvorní šašci__ - Viktor Fischl
 0. __Edison__ - Vítězslav Nezval
 0. __Frankenstein__ - M. W. Shelley, _Tomáš Korbař_
-0. __Hamlet__ -  William Shakespeare, _Josef Václav Sládek_
+0. __Hamlet__ - William Shakespeare, _Josef Václav Sládek_
 0. __Hamlet__ - William Shakespeare, _Martin Hilský_
 0. __Hastrman__ - Miloš Urban
 0. __Hluboký spánek__ - Raymond Chandler, _František Jungwirth_
@@ -682,7 +681,6 @@ hidden = true
 0. __Petrohradské povídky__ - Nikola Vasiljevič Gogol, _Anna Nováková_
 0. __Pochod Radeckého__ - Joseph Roth, _Jitka Fučíková_
 0. __Pokání__ - Ian McEwan, _Marie Válková_
-0. __Proces__ - Frank Kafka, _Pavel Eisner_
 0. __Proces__ - Franz Kafka, _Josef Čermák_
 0. __Proces__ - Franz Kafka, _Pavel Eisner_
 0. __Příběhy Sherlocka Holmese__ - Arthur Conan Doyle, _Jan Zábrana_
@@ -736,8 +734,8 @@ hidden = true
 |      5 | Na západní frontě klid - Erich Maria Remarque       |
 |      4 | Velký Gatsby - Francis Scott Fitzgerald             |
 |      4 | Cizinec - Albert Camus                              |
+|      4 | Proces - Franz Kafka                                |
 |      3 | Srdce temnoty - Joseph Conrad                       |
-|      3 | Proces - Franz Kafka                                |
 |      3 | Pochod Radeckého - Joseph Roth                      |
 |      3 | Peklo - Dante Alighieri                             |
 |      3 | Medeia - Euripidés                                  |
@@ -763,6 +761,7 @@ hidden = true
 |      2 | Hastrman - Miloš Urban                              |
 |      2 | Čekání na Godota - Samuel Beckett                   |
 |      2 | Antigona - Sofoklés                                 |
+|      2 | Hamlet - William Shakespeare                        |
 |      1 | Zločin a trest - Fjodor Dostojevskij                |
 |      1 | Zlatý osel - Apuleius                               |
 |      1 | Země vod - Graham Swift                             |
@@ -786,7 +785,6 @@ hidden = true
 |      1 | Putování za Svatým Grálem - neznámý                 |
 |      1 | Pšna dní - Boris Vian                               |
 |      1 | Příliš hlučná samota - Bohumil Hrabal               |
-|      1 | Proces - Frank Kafka                                |
 |      1 | Pokání - Ian McEwan                                 |
 |      1 | Petrohradské povídky - Nikola Vasiljevič Gogol      |
 |      1 | Paní Bovaryová - Gustav Flaubert                    |
@@ -815,8 +813,6 @@ hidden = true
 |      1 | Chazarský slovník - Milorad Pavic                   |
 |      1 | Hordubal - Karel Čapek                              |
 |      1 | Hluboký spánek - Raymond Chandler                   |
-|      1 | Hamlet - William Shakespeare                        |
-|      1 | Hamlet -  William Shakespeare                       |
 |      1 | Frankenstein - M. W. Shelley                        |
 |      1 | Dvorní šašci - Viktor Fischl                        |
 |      1 | Don Quijote - Miguel de Cervantes                   |
