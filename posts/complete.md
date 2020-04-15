@@ -125,7 +125,6 @@ hidden = true
 0. __Pochod Radeckého__ - Josef Roth, _Jitka Fučíková_
 0. __Pochod Radeckého__ - Joseph Roth, _Jitka Fučíková_
 0. __Pokání__ - Ian McEwan, _Marie Válková_
-0. __Proces__ - Frank Kafka, _Pavel Eisner_
 0. __Proces__ - Franz Kafka, _Josef Čermák_
 0. __Proces__ - Franz Kafka, _Pavel Eisner_
 0. __Příběhy Sherlocka Holmese__ - Arthur Conan Doyle, _Jan Zábrana_
@@ -217,8 +216,8 @@ hidden = true
 |     10 | Spalovač mrtvol - Ladislav Fuks                       |
 |     10 | Na západní frontě klid - Erich Maria Remarque         |
 |      9 | Cizinec - Albert Camus                                |
+|      9 | Proces - Franz Kafka                                  |
 |      8 | Stepní vlk - Hermann Hesse                            |
-|      8 | Proces - Franz Kafka                                  |
 |      8 | Obsluhoval jsem anglického krále - Bohumil Hrabal     |
 |      8 | Nesnesitelná lehkost bytí - Milan Kundera             |
 |      7 | Zločin a trest - Fjodor Dostojevskij                  |
@@ -294,7 +293,6 @@ hidden = true
 |      1 | Putování za Svatým Grálem - neznámý                   |
 |      1 | Pšna dní - Boris Vian                                 |
 |      1 | Příliš hlučná samota - Bohumil Hrabal                 |
-|      1 | Proces - Frank Kafka                                  |
 |      1 | Pokání - Ian McEwan                                   |
 |      1 | Pochod Radeckého - Josef Roth                         |
 |      1 | Plechový bubínek - Günter Grass                       |
