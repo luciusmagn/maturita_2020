@@ -28,13 +28,8 @@
 			<!--<h1	class="logo">{{ config.site_name }}</h1>-->
 			<nav role="navigation">
 				<ul>
-					<li><a href="/"	class="active">Writing</a></li>
-					<li><a href="/posts/about.html">About</a></li>
-					<li><a href="/posts/projects.html">Projects</a></li>
-					<li><a href="/posts/style.html">Style</a></li>
-					<li><a href="/posts/contacts.html">Contacts</a></li>
-					<li><a href="/posts/rocks-suck.html">Rocks-sucks</a></li>
-					<li><a href="/posts/contrib.html">Contrib</a></li>
+					<li><a href="/"	class="active">Studenti</a></li>
+					<li><a href="/posts/complete.html">Celkový přehled</a></li>
 				</ul>
 			</nav>
 		</header>
