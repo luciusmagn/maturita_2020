@@ -1,0 +1,32 @@
+tags = []
+title = "Usov Artem"
+
+### Světová a česká literature do konce 18. století
+1. __Epos o Gilgamešovi__ - neznámý, _Lubor Matouš_
+0. __Král Oidipus__ - Sofoklés, _Ferdinand Stiebitz_
+
+### Světová a česká literatura 19. století
+1. __Démon__ - Michail Jurjevič Lermontov, _Josef Hora_
+0. __Evžen Oněgin__ - Alexandr Sergejevič Puškin, _Milan Dvořák_
+0. __Obraz Doriana Graye__ - Oscar Wilde, _Jiří Zdeněk Novák_
+
+### Světová literatura 20. a 21. století
+1. __451° Fahrenheita__ - Ray Bradbury, _Jarmila Emmerová_
+0. __Konec civilizace__ - Aldous Huxley, _Josef Kostohryz_
+0. __Pán much__ - William Golding, _Heda Kovályová_
+0. __1984__ - George Orwell, _Petra Martínková_
+
+### Česká literatura 20. a 21. století
+1. __Válka s mloky__ - Karel Čapek
+0. __Zahradní slavnost__ - Václav Havel
+0. __R.U.R__ - Karel Čapek
+0. __Žert__ - Milan Kundera
+0. __Spalovač mrtvol__ - Ladislav Fuks
+
+### Volný výběr
+1. __Na západní frontě klid__ - Erich Maria Remarque, _František Gel_
+0. __Pšna dní__ - Boris Vian, _Svatopluk Horečka_
+0. __Maus__ - Art Spiegelman, _Jiří Zavadil_
+0. __Macbeth__ - William Shakespeare, _Josef Václav Sládek_
+0. __Klub rváčů__ - Chuck Palahniuk, _Richard Podaný
+0. __Příběhy Sherlocka Holmese__ - Arthur Conan Doyle, _Jan Zábrana_
