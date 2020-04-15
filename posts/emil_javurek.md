@@ -21,7 +21,7 @@ title = "Javůrek Emil"
 0. __R.U.R__ - Karel Čapek
 0. __Krysař__ - Viktor Dyk
 0. __Válka s mloky__ - Karel Čapek
-0. __Žert__ - Milan Kundera
+0. __Nesnesitelná lehkost bytí__ - Milan Kundera
 
 ### Volný výběr
 1. __Proces__ - Frank Kafka, _Pavel Eisner_
@@ -29,4 +29,4 @@ title = "Javůrek Emil"
 0. __Pěna dní__ - Boris Vian, _Svatopluk Horečka_
 0. __Na východ od ráje__ - John Steinbeck, _František Vrba_
 0. __Stepní vlk__ - Hermann Hesse, _Vratislav Slezák_
-0. __Nesnesitelná lehkost bytí__ - Milan Kundera
+0. __Maus__ - Art Spiegelman, _Jiří Zavadil_

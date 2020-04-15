@@ -223,8 +223,8 @@ hidden = true
 |      8 | Nesnesitelná lehkost bytí - Milan Kundera             |
 |      7 | Zločin a trest - Fjodor Dostojevskij                  |
 |      7 | Magorovy labutí písně - Ivan Martin Jirous            |
+|      7 | Maus - Art Spiegelman                                 |
 |      6 | Medeia - Euripidés                                    |
-|      6 | Maus - Art Spiegelman                                 |
 |      6 | Konec civilizace - Aldous Huxley                      |
 |      5 | Zlatý osel - Apuleius                                 |
 |      5 | Srdce temnoty - Joseph Conrad                         |
@@ -241,7 +241,6 @@ hidden = true
 |      4 | Pochod Radeckého - Joseph Roth                        |
 |      4 | Macbeth - William Shakespeare                         |
 |      4 | Jakub Fatalista - Denis Diderot                       |
-|      3 | Žert - Milan Kundera                                  |
 |      3 | Romeo a Julie - William Shakespeare                   |
 |      3 | Revizor - Nikolaj Vasiljevič Gogol                    |
 |      3 | Racek - Anton Pavlovič Čechov                         |
@@ -254,6 +253,7 @@ hidden = true
 |      3 | Hastrman - Miloš Urban                                |
 |      3 | Epos o Gilgamešovi - neznámý                          |
 |      3 | Čekání na Godota - Samuel Beckett                     |
+|      2 | Žert - Milan Kundera                                  |
 |      2 | Zámek - Franz Kafka                                   |
 |      2 | Vlny - Virginia Woolfová                              |
 |      2 | Utrpení mladého Werthera - Johann Wolfgang Goethe     |
@@ -596,12 +596,13 @@ hidden = true
 |      6 | Magorovy labutí písně - Ivan Martin Jirous        |
 |      5 | Nesnesitelná lehkost bytí - Milan Kundera         |
 |      4 | Hordubal - Karel Čapek                            |
-|      3 | Žert - Milan Kundera                              |
 |      3 | Zbabělci - Josef Škvorecký                        |
 |      3 | Němá barikáda - Jan Drda                          |
 |      3 | Kladivo na čarodějnice - Václav Kaplický          |
 |      2 | Reportáž psaná na oprázce - Julius Fučík          |
 |      2 | Nikola Šuhaj loupežník - Ivan Olbracht            |
+|      2 | Žert - Milan Kundera                              |
+|      1 | Nesnesitelná lehkost bytí - Milan Kundera         |
 |      1 | Těžká hodina - Jiří Wolker                        |
 |      1 | Škleb - Richard Weiner                            |
 |      1 | Sekyra - Ludvík Vaculík                           |
@@ -732,7 +733,7 @@ hidden = true
 |      9 | Pěna dní - Boris Vian                               |
 |      6 | 1984 - George Orwell                                |
 |      6 | Pán much - William Golding                          |
-|      6 | Maus - Art Spiegelman                               |
+|      7 | Maus - Art Spiegelman                               |
 |      5 | 451° Fahrenheita - Ray Bradbury                     |
 |      5 | Na západní frontě klid - Erich Maria Remarque       |
 |      4 | Velký Gatsby - Francis Scott Fitzgerald             |
@@ -741,10 +742,10 @@ hidden = true
 |      3 | Proces - Franz Kafka                                |
 |      3 | Pochod Radeckého - Joseph Roth                      |
 |      3 | Peklo - Dante Alighieri                             |
-|      3 | Nesnesitelná lehkost bytí - Milan Kundera           |
 |      3 | Medeia - Euripidés                                  |
 |      3 | Kytice - Karel Jaromír Erben                        |
 |      3 | Edison - Vítězslav Nezval                           |
+|      2 | Nesnesitelná lehkost bytí - Milan Kundera           |
 |      2 | Zahradní slavnost - Václav Havel                    |
 |      2 | Vlny - Virginia Woolfová                            |
 |      2 | Sto roků samoty - Gabriel García Márquez            |
