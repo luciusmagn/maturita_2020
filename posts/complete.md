@@ -80,7 +80,6 @@ hidden = true
 0. __Mistr a Markétka__ - Michail Bulgakov
 0. __Mistr a Markétka__ - Michail Bulgakov, _Alena Morávková_
 0. __Mistr a Markétka__ - Michail Bulgakov, _Libor Dvořák_
-0. __Modlitba pro Kateřinu Horowitzovou__ -  Arnošt Lustig
 0. __Modlitba pro Kateřinu Horowitzovou__ - Arnošt Lustig
 0. __Mor__ - Albert Camus, _Millena Tomášková_
 0. __Most přes řeku Kwai__ - Pierre Boulle, _Josef Šup_
@@ -271,6 +270,7 @@ hidden = true
 |      2 | Hrál kdosi na hoboj - Karel Hlaváček                  |
 |      2 | Frankenstein - M. W. Shelley                          |
 |      2 | Démon - Michail Jurjevič Lermontov                    |
+|      2 | Modlitba pro Kateřinu Horowitzovou - Arnošt Lustig    |
 |      1 | Země vod - Graham Swift                               |
 |      1 | Zeď - Jean Paul Sartre                                |
 |      1 | Zabiják - Émile Zola                                  |
@@ -305,8 +305,6 @@ hidden = true
 |      1 | Mýcení - Thomas Bernhard                              |
 |      1 | Most přes řeku Kwai - Pierre Boulle                   |
 |      1 | Mor - Albert Camus                                    |
-|      1 | Modlitba pro Kateřinu Horowitzovou - Arnošt Lustig    |
-|      1 | Modlitba pro Kateřinu Horowitzovou -  Arnošt Lustig   |
 |      1 | Mechanický pomeranč - Antony Burgess                  |
 |      1 | Markéta Lazarová - Vladislav Vančura                  |
 |      1 | Malá maďarská pornografie - Péter Esterházy           |
@@ -656,7 +654,6 @@ hidden = true
 0. __Medeia__ - Euripidés, _Petr Durdík_
 0. __Mistr a Markétka__ - Michail Bulgakov, _Alena Morávková_
 0. __Mistr a Markétka__ - Michail Bulgakov, _Libor Dvořák_
-0. __Modlitba pro Kateřinu Horowitzovou__ -  Arnošt Lustig
 0. __Modlitba pro Kateřinu Horowitzovou__ - Arnošt Lustig
 0. __Mor__ - Albert Camus, _Millena Tomášková_
 0. __Most přes řeku Kwai__ - Pierre Boulle, _Josef Šup_
@@ -762,6 +759,7 @@ hidden = true
 |      2 | Čekání na Godota - Samuel Beckett                   |
 |      2 | Antigona - Sofoklés                                 |
 |      2 | Hamlet - William Shakespeare                        |
+|      2 | Modlitba pro Kateřinu Horowitzovou - Arnošt Lustig  |
 |      1 | Zločin a trest - Fjodor Dostojevskij                |
 |      1 | Zlatý osel - Apuleius                               |
 |      1 | Země vod - Graham Swift                             |
@@ -796,8 +794,6 @@ hidden = true
 |      1 | Mýcení - Thomas Bernhard                            |
 |      1 | Most přes řeku Kwai - Pierre Boulle                 |
 |      1 | Mor - Albert Camus                                  |
-|      1 | Modlitba pro Kateřinu Horowitzovou - Arnošt Lustig  |
-|      1 | Modlitba pro Kateřinu Horowitzovou -  Arnošt Lustig |
 |      1 | Máj - Karel Hynek Mácha                             |
 |      1 | Magorovy labutí písně - Ivan Martin Jirous          |
 |      1 | Labyrint světa a ráj srdce - Jan Ámos Komenský      |

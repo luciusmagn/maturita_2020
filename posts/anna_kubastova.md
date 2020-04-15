@@ -29,4 +29,4 @@ title = "Kubaštová Anna"
 0. __Medeia__ - Euripidés, _Ferdinand Stiebitz_
 0. __Pán much__ - William Golding, _Heda Kovályová_
 0. __Spalovač mrtvol__ - Ladislav Fuks
-0. __Modlitba pro Kateřinu Horowitzovou__ -  Arnošt Lustig
+0. __Modlitba pro Kateřinu Horowitzovou__ - Arnošt Lustig
